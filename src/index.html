@@ -12,6 +12,7 @@
 <style>
 .demo-layout-transparent {
   background: url('/images/beer.jpg') center / cover;
+      height: 400px;
 }
 .demo-layout-transparent .mdl-layout__header,
 .demo-layout-transparent .mdl-layout__drawer-button {
@@ -26,6 +27,18 @@
 }
 .demo-card-square > .mdl-card__title {
   color: #fff;
+}
+
+.palebeer{
+  background: url('/images/srm/light.jpg') center / cover;
+}
+
+.amberbeer{
+  background: url('/images/srm/amber.jpg') center / cover;
+}
+
+.darkbeer{
+  background: url('/images/srm/dark.jpg') center / cover;
 }
 </style>
 
@@ -58,7 +71,8 @@
   </main>
 </div>
 <!-- main div -->
-<div id="main"></div>
+<div id="main">
+</div>
 <!-- scripts -->
     <script src="./js/fetch.js"></script>
     <script async src="./js/index.js"></script>
