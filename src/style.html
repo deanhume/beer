@@ -2,11 +2,64 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>title</title>
+    <title>Beer Styles</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+    <style>
+    .demo-layout-transparent {
+      background: url('/images/styles.jpg') center / cover;
+          height: 400px;
+    }
+    .demo-layout-transparent .mdl-layout__header,
+    .demo-layout-transparent .mdl-layout__drawer-button {
+      /* This background is dark, so we set text to white. Use 87% black instead if
+         your background is light. */
+      color: white;
+    }
+
+    .demo-card-square.mdl-card {
+      width: 320px;
+      height: 320px;
+    }
+    .demo-card-square > .mdl-card__title {
+      color: #fff;
+    }
+    </style>
   </head>
   <body>
-
+    <!-- header -->
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header mdl-layout__header--transparent">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">Title</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation -->
+          <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+          </nav>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Title</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+      </main>
+    </div>
+    <!-- main div -->
+    <div id="main"></div>
+    <!-- scripts -->
     <script src="./js/fetch.js"></script>
-    <script src="./js/style.js"></script>
+    <script async src="./js/style.js"></script>
   </body>
 </html>
