@@ -1,13 +1,13 @@
 // Get the details from the querystring
 function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    url = url.toLowerCase(); // This is just to avoid case sensitiveness
-    name = name.replace(/[\[\]]/g, "\\$&").toLowerCase();// This is just to avoid case sensitiveness for query parameter name
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  if (!url) url = window.location.href;
+  url = url.toLowerCase(); // This is just to avoid case sensitiveness
+  name = name.replace(/[\[\]]/g, "\\$&").toLowerCase();// This is just to avoid case sensitiveness for query parameter name
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+  results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
 // Fetch the beer styles
@@ -37,10 +37,13 @@ fetch('./data/styles.json')
   .then(function(response) {
     return response.json();
   }).then(function(body) {
-      // Loop through the results
-      for(var i = 0; i < body.data.length; i++) {
-        var beer = body.data[i];
+    // Loop through the results
+    for(var i = 0; i < body.data.length; i++) {
+      var beer = body.data[i];
 
+      // We only want verified beers
+      if(beer.status == 'verified')
+      {
         var cardDetails = '<div class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand" style="{{beerimage}}"><h2 class="mdl-card__title-text">{{beername}}</h2></div><div class="mdl-card__supporting-text">{{beerdescription}}</div><div class="mdl-card__actions mdl-card--border"></div></div>';
         cardDetails = cardDetails.replace('{{beername}}', beer.name);
         cardDetails = cardDetails.replace('{{beerdescription}}', beer.description);
@@ -66,6 +69,7 @@ fetch('./data/styles.json')
           innerCardDetails += cardDetails;
         }
         innerCount++;
+      }
     }
 
     // Get the number of pages to cycle through
