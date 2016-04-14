@@ -44,13 +44,14 @@ fetch('./data/styles.json')
       // We only want verified beers
       if(beer.status == 'verified' && beer)
       {
-        console.log(beer);
-        var cardDetails = '<div class="mdl-cell mdl-cell--4-col"><div class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand" style="{{beerimage}}"><h2 class="mdl-card__title-text">{{beername}}</h2></div><div class="mdl-card__supporting-text">{{beerdescription}}</div><div class="mdl-card__actions mdl-card--border"></div></div></div>';
+        var cardDetails = '<div class="mdl-cell mdl-cell--4-col"><div class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand" style="{{beerimage}}"><h2 class="mdl-card__title-text">{{beername}}</h2></div><div class="mdl-card__supporting-text">{{beerdescription}}</div><div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{beerlink}}">Find out more</a></div></div></div>';
         cardDetails = cardDetails.replace('{{beername}}', beer.name);
 
         var beerDescription = beer.description;
         if (!beerDescription){ beerDescription = ""; } // Check if we have a value
         cardDetails = cardDetails.replace('{{beerdescription}}', beerDescription);
+
+        cardDetails = cardDetails.replace('{{beerlink}}', "/beer.html?id=" + i + "&styleurl=" + styleUrl);
 
         // Display the label if we have one
         if (beer.labels)
