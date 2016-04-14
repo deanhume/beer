@@ -43,7 +43,7 @@ fetch('./data/styles.json')
         innerCardDetails += cardDetails;
       }
       innerCount++;
-}
+    }
 
   document.getElementById("main").innerHTML = result;
 });

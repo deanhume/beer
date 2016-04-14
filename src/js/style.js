@@ -42,11 +42,15 @@ fetch('./data/styles.json')
       var beer = body.data[i];
 
       // We only want verified beers
-      if(beer.status == 'verified')
+      if(beer.status == 'verified' && beer)
       {
-        var cardDetails = '<div class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand" style="{{beerimage}}"><h2 class="mdl-card__title-text">{{beername}}</h2></div><div class="mdl-card__supporting-text">{{beerdescription}}</div><div class="mdl-card__actions mdl-card--border"></div></div>';
+        console.log(beer);
+        var cardDetails = '<div class="mdl-cell mdl-cell--4-col"><div class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand" style="{{beerimage}}"><h2 class="mdl-card__title-text">{{beername}}</h2></div><div class="mdl-card__supporting-text">{{beerdescription}}</div><div class="mdl-card__actions mdl-card--border"></div></div></div>';
         cardDetails = cardDetails.replace('{{beername}}', beer.name);
-        cardDetails = cardDetails.replace('{{beerdescription}}', beer.description);
+
+        var beerDescription = beer.description;
+        if (!beerDescription){ beerDescription = ""; } // Check if we have a value
+        cardDetails = cardDetails.replace('{{beerdescription}}', beerDescription);
 
         // Display the label if we have one
         if (beer.labels)
