@@ -10,6 +10,12 @@ function getParameterByName(name, url) {
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+// Create the hero text from the style name
+function createHeroText(styleName){
+  var styleHeroName = '<div class="mdl-grid style_name">{{styleName}}</div>';
+  return styleHeroName.replace('{{styleName}}', styleName);
+}
+
 // Fetch the beer styles
 fetch('./data/styles.json')
 .then(function(response) {
@@ -19,7 +25,11 @@ fetch('./data/styles.json')
   var styleId = getParameterByName('id');
   var pageId = getParameterByName('page');
   var style = body.data[styleId];
-  var result = "<p>" + style.name +  "</p><br>" + style.description + "<br><hr> ";
+  var result = "<div class='mdl-grid'>" + style.description + "</div>";
+
+  // Append the style name in the hero image
+  var styleHeroElement = document.getElementById('styleName');
+  styleHeroElement.innerHTML += createHeroText(style.name);
 
   // Check if we are being page
   var styleUrl = './data/beers-style-' + styleId;

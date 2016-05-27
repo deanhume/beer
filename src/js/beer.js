@@ -13,9 +13,6 @@ function getParameterByName(name, url) {
 var styleUrl = getParameterByName('styleurl');
 var beerId = getParameterByName('id');
 
-console.log(beerId);
-console.log(styleUrl);
-
 // Fetch the beer styles
 fetch(styleUrl)
 .then(function(response) {
@@ -24,4 +21,7 @@ fetch(styleUrl)
 
     var beer = body.data[beerId];
     console.log(beer);
+
+    // Build up the contents to return
+    
 });
