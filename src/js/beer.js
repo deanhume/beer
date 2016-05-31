@@ -10,6 +10,12 @@ function getParameterByName(name, url) {
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+// Create the hero text from the style name
+function createHeroText(beerName){
+  var styleHeroName = '<div class="mdl-grid style_name">{{beerName}}</div>';
+  return styleHeroName.replace('{{beerName}}', beerName);
+}
+
 var styleUrl = getParameterByName('styleurl');
 var beerId = getParameterByName('id');
 
@@ -19,9 +25,21 @@ fetch(styleUrl)
   return response.json();
 }).then(function(body) {
 
-    var beer = body.data[beerId];
-    console.log(beer);
+    var beer = body.data[beerId]; console.log(beer);
+    var htmlDocument = document;
 
-    // Build up the contents to return
-    
+    // Append the style name in the hero image
+    var beerHeroElement = htmlDocument.getElementById('beerName');
+    beerHeroElement.innerHTML += createHeroText(beer.nameDisplay);
+
+    // Update the beer description
+    var beerDescription = htmlDocument.getElementById('beer-description');
+    beerDescription.innerHTML = beer.description;
+
+    // Update the beer image
+    if (beer.labels)
+    {
+      var beerImage = htmlDocument.getElementById('beer-image');
+      beerImage.setAttribute("style", "background: url('" + beer.labels.large + "') center / cover; ");
+    }
 });

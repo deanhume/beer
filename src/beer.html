@@ -2,18 +2,16 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Beer</title>
+    <title>Progressive Beer</title>
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
     <link rel="stylesheet" href="./css/material.indigo-pink.min.css">
     <style>
-    .demo-layout-transparent {
+    .header-background {
       background: url('/images/beer-page.jpg') center / cover;
-          height: 400px;
+      height: 400px;
     }
     .demo-layout-transparent .mdl-layout__header,
     .demo-layout-transparent .mdl-layout__drawer-button {
-      /* This background is dark, so we set text to white. Use 87% black instead if
-         your background is light. */
       color: white;
     }
 
@@ -24,65 +22,61 @@
     .demo-card-square > .mdl-card__title {
       color: #fff;
     }
+
+    .main_content{
+      margin: 0 auto;
+    }
+
+    .style_name{
+      margin-top: 15%;
+      font-size: 40px;
+    }
+
+    .palebeer{
+      background: url('/images/srm/light.jpg') center / cover;
+    }
     </style>
   </head>
   <body>
     <!-- header -->
     <div class="demo-layout-transparent mdl-layout mdl-js-layout">
-      <header class="mdl-layout__header mdl-layout__header--transparent">
+      <header class="mdl-layout__header mdl-layout__header--transparent header-background">
         <div class="mdl-layout__header-row">
           <!-- Title -->
-          <span class="mdl-layout-title"><a href="/">Title</a></span>
+          <span class="mdl-layout-title"><a href="/">Progressive Beer</a></span>
           <!-- Add spacer, to align navigation to the right -->
           <div class="mdl-layout-spacer"></div>
           <!-- Navigation -->
           <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Home</a>
+            <a class="mdl-navigation__link" href="">About</a>
           </nav>
         </div>
+        <div id="beerName" class="mdl-layout__header-row"></div>
       </header>
       <div class="mdl-layout__drawer">
-          <span class="mdl-layout-title"><a href="/">Title</a></span>
+        <span class="mdl-layout-title"><a href="/">Progressive Beer</a></span>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Home</a>
+          <a class="mdl-navigation__link" href="">About</a>
         </nav>
       </div>
-      <main class="mdl-layout__content">
-      </main>
-    </div>
-    <!-- main div -->
-    <div id="main">
-      <!-- first section -->
-      <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-              <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
-                <i class="material-icons">play_circle_filled</i>
-              </header>
-              <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
-                <div class="mdl-card__supporting-text">
-                  <h4>Features</h4>
-                  Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse.
-                </div>
-                <div class="mdl-card__actions">
-                  <a href="#" class="mdl-button">Read our features</a>
-                </div>
+        <!-- main div -->
+      <main class="mdl-layout__content main_content" id="main">
+        <!-- beer features -->
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" style="margin-top: 50px;margin-bottom: 50px;width:60%;">
+            <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone palebeer mdl-color-text--white" id="beer-image"></header>
+            <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+              <div class="mdl-card__supporting-text">
+                <h4>Features</h4>
+                <div id="beer-description"></div>
               </div>
-              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn1" data-upgraded=",MaterialButton,MaterialRipple">
-                <i class="material-icons">more_vert</i>
-              <span class="mdl-button__ripple-container"><span class="mdl-ripple is-animating" style="width: 92.5097px; height: 92.5097px; transform: translate(-50%, -50%) translate(12px, 11px);"></span></span></button>
-              <div class="mdl-menu__container is-upgraded" style="right: 8px; top: 40px; width: 124px; height: 160px;"><div class="mdl-menu__outline mdl-menu--bottom-right" style="width: 124px; height: 160px;"></div><ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn1" data-upgraded=",MaterialMenu" style="clip: rect(0px 124px 0px 124px);">
-                <li class="mdl-menu__item" tabindex="-1">Lorem</li>
-                <li class="mdl-menu__item" disabled="" tabindex="-1">Ipsum</li>
-                <li class="mdl-menu__item" tabindex="-1">Dolor</li>
-              </ul></div>
-            </section>
-            <!-- second section -->
-            <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+              <div class="mdl-card__actions">
+              </div>
+            </div>
+          </section>
+          <!-- details -->
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
                 <h4 class="mdl-cell mdl-cell--12-col">Details</h4>
@@ -121,64 +115,66 @@
               <li class="mdl-menu__item" tabindex="-1">Dolor</li>
             </ul></div>
           </section>
+      </main>
+      <!-- footer -->
+      <footer class="mdl-mega-footer">
+        <div class="mdl-mega-footer__middle-section">
+      <div class="mdl-mega-footer__drop-down-section">
+        <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+        <h1 class="mdl-mega-footer__heading">Features</h1>
+        <ul class="mdl-mega-footer__link-list">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Partners</a></li>
+          <li><a href="#">Updates</a></li>
+        </ul>
       </div>
-    <!-- footer -->
-    <footer class="mdl-mega-footer">
-  <div class="mdl-mega-footer__middle-section">
 
-    <div class="mdl-mega-footer__drop-down-section">
-      <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
-      <h1 class="mdl-mega-footer__heading">Features</h1>
+      <div class="mdl-mega-footer__drop-down-section">
+        <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+        <h1 class="mdl-mega-footer__heading">Details</h1>
+        <ul class="mdl-mega-footer__link-list">
+          <li><a href="#">Specs</a></li>
+          <li><a href="#">Tools</a></li>
+          <li><a href="#">Resources</a></li>
+        </ul>
+      </div>
+
+      <div class="mdl-mega-footer__drop-down-section">
+        <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+        <h1 class="mdl-mega-footer__heading">Technology</h1>
+        <ul class="mdl-mega-footer__link-list">
+          <li><a href="#">How it works</a></li>
+          <li><a href="#">Patterns</a></li>
+          <li><a href="#">Usage</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Contracts</a></li>
+        </ul>
+      </div>
+
+      <div class="mdl-mega-footer__drop-down-section">
+        <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+        <h1 class="mdl-mega-footer__heading">FAQ</h1>
+        <ul class="mdl-mega-footer__link-list">
+          <li><a href="#">Questions</a></li>
+          <li><a href="#">Answers</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="mdl-mega-footer__bottom-section">
+      <div class="mdl-logo">Title</div>
       <ul class="mdl-mega-footer__link-list">
-        <li><a href="#">About</a></li>
-        <li><a href="#">Terms</a></li>
-        <li><a href="#">Partners</a></li>
-        <li><a href="#">Updates</a></li>
+        <li><a href="#">Help</a></li>
+        <li><a href="#">Privacy & Terms</a></li>
       </ul>
     </div>
 
-    <div class="mdl-mega-footer__drop-down-section">
-      <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
-      <h1 class="mdl-mega-footer__heading">Details</h1>
-      <ul class="mdl-mega-footer__link-list">
-        <li><a href="#">Specs</a></li>
-        <li><a href="#">Tools</a></li>
-        <li><a href="#">Resources</a></li>
-      </ul>
+  </footer>
     </div>
 
-    <div class="mdl-mega-footer__drop-down-section">
-      <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
-      <h1 class="mdl-mega-footer__heading">Technology</h1>
-      <ul class="mdl-mega-footer__link-list">
-        <li><a href="#">How it works</a></li>
-        <li><a href="#">Patterns</a></li>
-        <li><a href="#">Usage</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">Contracts</a></li>
-      </ul>
-    </div>
-
-    <div class="mdl-mega-footer__drop-down-section">
-      <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
-      <h1 class="mdl-mega-footer__heading">FAQ</h1>
-      <ul class="mdl-mega-footer__link-list">
-        <li><a href="#">Questions</a></li>
-        <li><a href="#">Answers</a></li>
-        <li><a href="#">Contact us</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="mdl-mega-footer__bottom-section">
-    <div class="mdl-logo">Title</div>
-    <ul class="mdl-mega-footer__link-list">
-      <li><a href="#">Help</a></li>
-      <li><a href="#">Privacy & Terms</a></li>
-    </ul>
-  </div>
-
-</footer>
     <!-- scripts -->
     <script src="./js/fetch.js"></script>
     <script async src="./js/beer.js"></script>
