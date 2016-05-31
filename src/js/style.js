@@ -16,6 +16,37 @@ function createHeroText(styleName){
   return styleHeroName.replace('{{styleName}}', styleName);
 }
 
+function createPaging(numberOfPages, currentPage, styleId)
+{
+  var result = "";
+
+  // Get the number of pages to cycle through
+  if ((numberOfPages > 1) && (currentPage < numberOfPages))
+  {
+    var pagingHtml = "<div class=\"mdl-grid\"><div class=\"mdl-cell mdl-cell--4-col\"></div><div class=\"mdl-cell mdl-cell--4-col\">{{previousButton}}<a class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" href='/style.html?id={{styleId}}&page={{page}}'>Next Page</a></div><div class=\"mdl-cell mdl-cell--4-col\"></div>";
+
+    var page = currentPage + 1;
+    pagingHtml = pagingHtml.replace('{{styleId}}', styleId);
+    pagingHtml = pagingHtml.replace('{{page}}', page);
+
+    result += pagingHtml;
+  }
+
+  // Do we need a back button?
+  if ((numberOfPages > 1) && currentPage > 1){
+    result = result.replace('{{previousButton}}', "<a class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" href='/style.html?id={{styleId}}&page={{previousPage}}'>Previous Page</a><div></div>");
+
+    var previousPage = currentPage - 1;
+    result = result.replace('{{styleId}}', styleId);
+    result = result.replace('{{previousPage}}', previousPage);
+  }
+  else{
+    result = result.replace('{{previousButton}}', ''); // Do nothing
+  }
+
+  return result;
+}
+
 // Fetch the beer styles
 fetch('./data/styles.json')
 .then(function(response) {
@@ -33,7 +64,7 @@ fetch('./data/styles.json')
 
   // Check if we are being page
   var styleUrl = './data/beers-style-' + styleId;
-  if (pageId > 0){
+  if (pageId > 1){
     styleUrl += '-page-' + pageId + '.json';
   }
   else{
@@ -87,12 +118,8 @@ fetch('./data/styles.json')
       }
     }
 
-    // Get the number of pages to cycle through
-    if ((body.numberOfPages > 1) && (body.currentPage < body.numberOfPages))
-    {
-      var currentPage = body.currentPage + 1;
-      result += "<a href='/style.html?id=" + styleId + "&page=" + currentPage + "'>Next Page</a><br>";
-    }
+    // Add paging if necessary
+    result += createPaging(body.numberOfPages, body.currentPage, styleId);
 
     document.getElementById("main").innerHTML = result;
   });
