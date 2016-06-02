@@ -23,7 +23,7 @@ function createPaging(numberOfPages, currentPage, styleId)
   // Get the number of pages to cycle through
   if ((numberOfPages > 1) && (currentPage < numberOfPages))
   {
-    var pagingHtml = "<div class=\"mdl-grid\"><div class=\"mdl-cell mdl-cell--4-col\"></div><div class=\"mdl-cell mdl-cell--4-col\">{{previousButton}}<a class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" href='/style.html?id={{styleId}}&page={{page}}'>Next Page</a></div><div class=\"mdl-cell mdl-cell--4-col\"></div>";
+    var pagingHtml = "<div class=\"mdl-grid\"><div class=\"mdl-cell mdl-cell--4-col\"></div><div class=\"mdl-cell mdl-cell--4-col\">{{previousButton}}<a style=\"float:right;\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" href='/style.html?id={{styleId}}&page={{page}}'>Next Page</a></div><div class=\"mdl-cell mdl-cell--4-col\"></div>";
 
     var page = currentPage + 1;
     pagingHtml = pagingHtml.replace('{{styleId}}', styleId);
@@ -34,7 +34,7 @@ function createPaging(numberOfPages, currentPage, styleId)
 
   // Do we need a back button?
   if ((numberOfPages > 1) && currentPage > 1){
-    result = result.replace('{{previousButton}}', "<a class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" href='/style.html?id={{styleId}}&page={{previousPage}}'>Previous Page</a><div></div>");
+    result = result.replace('{{previousButton}}', "<a style=\"float:left;\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" href='/style.html?id={{styleId}}&page={{previousPage}}'>Previous Page</a><div></div>");
 
     var previousPage = currentPage - 1;
     result = result.replace('{{styleId}}', styleId);

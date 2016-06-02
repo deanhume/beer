@@ -42,4 +42,41 @@ fetch(styleUrl)
       var beerImage = htmlDocument.getElementById('beer-image');
       beerImage.setAttribute("style", "background: url('" + beer.labels.large + "') center / cover; ");
     }
+
+    // Add the details
+           var v = "<section class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp\" style=\"margin-top: 50px;margin-bottom: 50px;width: 60%;\"> \
+            <div class=\"mdl-card mdl-cell mdl-cell--12-col\"> \
+              <div class=\"mdl-card__supporting-text mdl-grid mdl-grid--no-spacing\" style=\"padding-bottom: 30px;\"> \
+              <h4 class=\"mdl-cell mdl-cell--12-col\" style=\"padding-top: 20px;\">Details</h4> \
+                <div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"> \
+                  <div class=\"section__circle-container__circle mdl-color--primary\" style=\"margin-top: 35px;\"></div> \
+                </div> \
+                <div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"> \
+                  <h5>International Bitterness Units scale</h5> \
+                  {{ibu}} \
+                </div> \
+                <div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"> \
+                  <div class=\"section__circle-container__circle mdl-color--primary\" style=\"margin-top: 35px;\"></div> \
+                </div> \
+                <div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"> \
+                  <h5>Alcohol by Volume</h5> \
+                  {{abvMin}} to {{abvMax}} \
+                </div> \
+                <div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"> \
+                  <div class=\"section__circle-container__circle mdl-color--primary\" style=\"margin-top: 35px;\"></div> \
+                </div> \
+                <div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"> \
+                  <h5>Final Gravity</h5> \
+                  {{fgMin}} to {{fgMax}} \
+                </div> \
+                <div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"> \
+                  <div class=\"section__circle-container__circle mdl-color--primary\" style=\"margin-top: 35px;\"></div> \
+                </div> \
+                <div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"> \
+                  <h5>Standard Reference Method</h5> \
+                  {{srmMin}} to {{srmMax}} \
+                </div> \
+              </div> \
+            </div> \
+          </section>";
 });

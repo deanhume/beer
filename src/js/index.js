@@ -45,5 +45,7 @@ fetch('./data/styles.json')
       innerCount++;
     }
 
+  // Paint the page
   document.getElementById("main").innerHTML = result;
+ 
 });

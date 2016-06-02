@@ -35,6 +35,17 @@
     .palebeer{
       background: url('/images/srm/light.jpg') center / cover;
     }
+
+    .section__circle-container__circle {
+        width: 64px;
+        height: 64px;
+        border-radius: 32px;
+        margin: 8px 0;
+    }
+
+    .section__text:not(:last-child) {
+        border-bottom: 1px solid rgba(0,0,0,.13);
+    }
     </style>
   </head>
   <body>
@@ -49,7 +60,7 @@
           <!-- Navigation -->
           <nav class="mdl-navigation">
             <a class="mdl-navigation__link" href="">Home</a>
-            <a class="mdl-navigation__link" href="">About</a>
+            <a class="mdl-navigation__link" href="/about.html">About</a>
           </nav>
         </div>
         <div id="beerName" class="mdl-layout__header-row"></div>
@@ -58,11 +69,18 @@
         <span class="mdl-layout-title"><a href="/">Progressive Beer</a></span>
         <nav class="mdl-navigation">
           <a class="mdl-navigation__link" href="">Home</a>
-          <a class="mdl-navigation__link" href="">About</a>
+          <a class="mdl-navigation__link" href="/about.html">About</a>
         </nav>
       </div>
+
         <!-- main div -->
       <main class="mdl-layout__content main_content" id="main">
+        <!-- loading button -->
+        <div class="mdl-grid" style="padding-top: 120px;" id="loading-button">
+          <div class="mdl-cell mdl-cell--6-col"></div>
+          <div class="mdl-cell mdl-cell--1-col"><div class="mdl-spinner mdl-js-spinner is-active"></div></div>
+          <div class="mdl-cell mdl-cell--5-col"></div>
+        </div>
         <!-- beer features -->
         <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" style="margin-top: 50px;margin-bottom: 50px;width:60%;">
             <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone palebeer mdl-color-text--white" id="beer-image"></header>
@@ -76,44 +94,40 @@
             </div>
           </section>
           <!-- details -->
-          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" style="margin-top: 50px;margin-bottom: 50px;width: 60%;">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
-              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-                <h4 class="mdl-cell mdl-cell--12-col">Details</h4>
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing" style="padding-bottom: 30px;">
+              <h4 class="mdl-cell mdl-cell--12-col" style="padding-top: 20px;">Details</h4>
                 <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                  <div class="section__circle-container__circle mdl-color--primary"></div>
+                  <div class="section__circle-container__circle mdl-color--primary" style="margin-top: 35px;"></div>
                 </div>
                 <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <h5>Lorem ipsum dolor sit amet</h5>
-                  Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Duis nulla tempor do aute et eiusmod velit exercitation nostrud quis <a href="#">proident minim</a>.
+                  <h5>International Bitterness Units scale</h5>
+                  {{ibu}}
                 </div>
                 <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                  <div class="section__circle-container__circle mdl-color--primary"></div>
+                  <div class="section__circle-container__circle mdl-color--primary" style="margin-top: 35px;"></div>
                 </div>
                 <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <h5>Lorem ipsum dolor sit amet</h5>
-                  Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Duis nulla tempor do aute et eiusmod velit exercitation nostrud quis <a href="#">proident minim</a>.
+                  <h5>Alcohol by Volume</h5>
+                  {{abvMin}} to {{abvMax}}
                 </div>
                 <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                  <div class="section__circle-container__circle mdl-color--primary"></div>
+                  <div class="section__circle-container__circle mdl-color--primary" style="margin-top: 35px;"></div>
                 </div>
                 <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <h5>Lorem ipsum dolor sit amet</h5>
-                  Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Duis nulla tempor do aute et eiusmod velit exercitation nostrud quis <a href="#">proident minim</a>.
+                  <h5>Final Gravity</h5>
+                  {{fgMin}} to {{fgMax}}
                 </div>
-              </div>
-              <div class="mdl-card__actions">
-                <a href="#" class="mdl-button">Read our features</a>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--primary" style="margin-top: 35px;"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h5>Standard Reference Method</h5>
+                  {{srmMin}} to {{srmMax}}
+                </div>
               </div>
             </div>
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn2" data-upgraded=",MaterialButton,MaterialRipple">
-              <i class="material-icons">more_vert</i>
-            <span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>
-            <div class="mdl-menu__container is-upgraded"><div class="mdl-menu__outline mdl-menu--bottom-right"></div><ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn2" data-upgraded=",MaterialMenu">
-              <li class="mdl-menu__item" tabindex="-1">Lorem</li>
-              <li class="mdl-menu__item" disabled="" tabindex="-1">Ipsum</li>
-              <li class="mdl-menu__item" tabindex="-1">Dolor</li>
-            </ul></div>
           </section>
       </main>
       <!-- footer -->
