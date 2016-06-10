@@ -1,0 +1,13 @@
+{
+  "name": "progressive-beer",
+  "version": "0.0.1",
+  "private": "true",
+  "dependencies": {
+    "express": "*",
+    "path": "*",
+    "request": "*"
+  },
+  "engines": {
+    "node": ">=0.12.7"
+  }
+}
