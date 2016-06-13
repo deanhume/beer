@@ -11,11 +11,11 @@ app.use("/data", express.static(__dirname + '/data'));
 // Get the home page
 app.get('/', function (req, res) {
   // The URL to fetch from
-  var beerUrl = 'http://api.brewerydb.com/v2/beers?styleId={{styleId}}&key=4f01238618e344bee9537ae5f5bb74cf&';
+  var beerUrl = 'http://api.brewerydb.com/v2/beers?styleId={{styleId}}&key=4f01238618e344bee9537ae5f5bb74cf';
 
   var fileName = './data/beers-style-{{styleId}}-page-{{pageId}}.json';
 
-for(var i = 1; i < 171; i++) {
+for(var i = 1; i < 2; i++) {
   var newBeerUrl = beerUrl.replace('{{styleId}}', i);
 
   request(newBeerUrl, function (error, response, body) {
@@ -24,12 +24,12 @@ for(var i = 1; i < 171; i++) {
 
       var numberOfPages = beers.numberOfPages;
 
-      console.log('numberOfPages',numberOfPages);
+      console.log('numberOfPages', numberOfPages);
 
       // Loop through and get the beers per style
       for(var x = 1; x < numberOfPages; x++) {
 
-        var pagedBeerUrl = beerUrl + '&p=' + x;
+        var pagedBeerUrl = newBeerUrl + '&p=' + x;
         console.log('beerUrl', pagedBeerUrl);
 
         // Fetch the contents of each pageId
@@ -43,10 +43,13 @@ for(var i = 1; i < 171; i++) {
             console.log('fileName', newFileName);
 
             // Now fetch the beers based on the style
-            fs.writeFile(newFileName, fullBeerPage);
+            fs.writeFile(newFileName, body);
           }
         });
       }
+    }
+    else{
+        console.log('Hit the limit for today');
     }
   });
   }
