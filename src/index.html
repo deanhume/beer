@@ -47,13 +47,27 @@
       font-size: 30px;
       letter-spacing: -2px;
     }
+
+    .styleTagline {
+      margin-top: 15%;
+      font-size: 25px;
+      font-style: italic;
+    }
+
+    .style_name{
+        margin-top: 15%;
+        font-size: 100px;
+        letter-spacing: -7px;
+        font-family: 'Gabriela', serif;
+    }
+
     </style>
   </head>
   <body>
     <!-- header -->
     <div class="demo-layout-transparent mdl-layout mdl-js-layout">
       <header class="mdl-layout__header mdl-layout__header--transparent header-background">
-        <div class="mdl-layout__header-row">
+        <div class="mdl-layout__header-row" style="border-bottom: .1rem solid hsla(0,0%,100%,.3);">
           <!-- Title -->
           <span class="mdl-layout-title"><a href="/">Progressive Beer</a></span>
           <!-- Add spacer, to align navigation to the right -->
@@ -64,6 +78,8 @@
             <a class="mdl-navigation__link" style="font-size: 20px;" href="./about.html">About</a>
           </nav>
         </div>
+        <div id="tagline" class="mdl-layout__header-row"><div class="mdl-grid style_name">Progressive Beer</div></div>
+        <div id="tagline" class="mdl-layout__header-row"><div class="mdl-grid styleTagline">The Ultimate Guide to Beer all around the World</div></div>
       </header>
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title"><a href="/">Progressive Beer</a></span>

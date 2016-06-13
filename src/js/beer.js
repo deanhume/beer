@@ -16,6 +16,11 @@ function createHeroText(beerName){
   return styleHeroName.replace('{{beerName}}', beerName);
 }
 
+function createHeroStyleText(tagline){
+  var heroStyleName = '<div class="mdl-grid styleTagline">{{tagline}}</div>';
+  return heroStyleName.replace('{{tagline}}', tagline);
+}
+
 var styleUrl = getParameterByName('styleurl');
 var beerId = getParameterByName('id');
 
@@ -31,6 +36,10 @@ fetch(styleUrl)
     // Append the style name in the hero image
     var beerHeroElement = htmlDocument.getElementById('beerName');
     beerHeroElement.innerHTML += createHeroText(beer.nameDisplay);
+
+    // Append the tagline name in the hero images
+    var styleHeroElement = htmlDocument.getElementById('tagline');
+    styleHeroElement.innerHTML += createHeroStyleText(beer.style.shortName);
 
     // Update the beer description
     var beerDescription = htmlDocument.getElementById('beer-description');
@@ -83,7 +92,7 @@ fetch(styleUrl)
 
     // Update the template
     var beerDetails = htmlDocument.getElementById('details');
-    
+
     detailsTemplate = detailsTemplate.replace('{{ibu}}', beer.ibu);
     detailsTemplate = detailsTemplate.replace('{{abvMin}}', beer.style.abvMin);
     detailsTemplate = detailsTemplate.replace('{{abvMax}}', beer.style.abvMax);
