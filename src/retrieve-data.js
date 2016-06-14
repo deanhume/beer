@@ -8,44 +8,38 @@ var app = express();
 
 app.use("/data", express.static(__dirname + '/data'));
 
+// Fetch the contents of each pageId
+function writeToDisk(theUrl, style, pageId){
+  request(theUrl, function (errorDetails, responseDetails, bodyDetails) {
+    if (!errorDetails && responseDetails.statusCode == 200) {
+      var fileName = './data/beers-style-' + style + '-page-' + pageId + '.json';
+      console.log('fileName', fileName);
+
+      // Write the body to file
+      fs.writeFile(fileName, bodyDetails);
+    }
+  });
+}
+
 // Get the home page
 app.get('/', function (req, res) {
-  // The URL to fetch from
-  var beerUrl = 'http://api.brewerydb.com/v2/beers?styleId={{styleId}}&key=4f01238618e344bee9537ae5f5bb74cf';
-
-  var fileName = './data/beers-style-{{styleId}}-page-{{pageId}}.json';
-
-for(var i = 1; i < 2; i++) {
-  var newBeerUrl = beerUrl.replace('{{styleId}}', i);
+// Loop through each style
+for(var styleId = 1; styleId <= 1; styleId++) {
+  var newBeerUrl = 'http://api.brewerydb.com/v2/beers?styleId=' + styleId + '&key=4f01238618e344bee9537ae5f5bb74cf&withBreweries=Y';
+  console.log('Hitting this style Url:', newBeerUrl);
 
   request(newBeerUrl, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var beers = JSON.parse(body);
-
-      var numberOfPages = beers.numberOfPages;
-
-      console.log('numberOfPages', numberOfPages);
+      var totalPages = beers.numberOfPages;
 
       // Loop through and get the beers per style
-      for(var x = 1; x < numberOfPages; x++) {
+      for(var pages = 1; pages <= totalPages; pages++) {
+        console.log('Looping through pages - on index:', pages);
 
-        var pagedBeerUrl = newBeerUrl + '&p=' + x;
-        console.log('beerUrl', pagedBeerUrl);
-
-        // Fetch the contents of each pageId
-        request(pagedBeerUrl, function (error, response, body) {
-          if (!error && response.statusCode == 200) {
-            var fullBeerPage = JSON.parse(body);
-
-            var newFileName = fileName.replace('{{styleId}}', i);
-            newFileName = fileName.replace('{{pageId}}', x);
-
-            console.log('fileName', newFileName);
-
-            // Now fetch the beers based on the style
-            fs.writeFile(newFileName, body);
-          }
-        });
+        // Because we are zero based index
+        var pagedBeerUrl = newBeerUrl + '&p=' + pages;
+        writeToDisk(pagedBeerUrl, styleId, pages);
       }
     }
     else{
