@@ -56,11 +56,15 @@ fetch('./data/styles.json')
   var styleId = getParameterByName('id');
   var pageId = getParameterByName('page');
   var style = body.data[styleId];
-  var result = "<div class='mdl-grid'>" + style.description + "</div>";
+  var result = '<div class="mdl-layout__header-row learn_title"><div class="mdl-grid">Available Beers</div></div>';
 
   // Append the style name in the hero image
   var styleHeroElement = document.getElementById('styleName');
   styleHeroElement.innerHTML += createHeroText(style.name);
+
+  // Append the description
+  var styleHeroElement = document.getElementById('styleDescription');
+  styleHeroElement.innerHTML += style.description;
 
   // Check if we are being page
   var styleUrl = './data/beers-style-' + styleId;
@@ -85,7 +89,7 @@ fetch('./data/styles.json')
       // We only want verified beers
       if(beer.status == 'verified' && beer)
       {
-        var cardDetails = '<div class="mdl-cell mdl-cell--4-col"><div class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand" style="{{beerimage}}"><h2 class="mdl-card__title-text">{{beername}}</h2></div><div class="mdl-card__supporting-text">{{beerdescription}}</div><div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{beerlink}}">Find out more</a></div></div></div>';
+        var cardDetails = '<div class="mdl-cell mdl-cell--4-col"><div class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand" style="{{beerimage}}"><h2 class="mdl-card__title-text">{{beername}}</h2></div><div class="mdl-card__supporting-text truncate">{{beerdescription}}</div><div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{beerlink}}">Find out more</a></div></div></div>';
         cardDetails = cardDetails.replace('{{beername}}', beer.name);
 
         var beerDescription = beer.description;

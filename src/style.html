@@ -28,6 +28,7 @@
 
     .main_content{
       margin: 0 auto;
+      border-top: .1rem solid #e4e4e4;
     }
 
     .style_name{
@@ -44,6 +45,22 @@
       font-size: 30px;
       letter-spacing: -2px;
     }
+
+    .learn_intro{
+      font-size: 20px;padding-bottom: 180px;width: 100%;text-align: center;line-height: 40px;margin-top: 550px;
+    }
+
+    .learn_title{
+      font-size: 40px;padding-top:100px; padding-bottom: 50px;font-family: 'Gabriela', serif;
+    }
+
+    .truncate {
+      width: 250px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     </style>
   </head>
   <body>
@@ -70,6 +87,9 @@
             <a class="mdl-navigation__link" href="./about.html">About</a>
           </nav>
       </div>
+      <!-- intro -->
+      <div class="mdl-layout__header-row learn_title"><div class="mdl-grid">This Beer's Style</div></div>
+      <div class="mdl-layout__header-row" style="margin-bottom: 400px;"><div class="mdl-grid learn_intro" id="styleDescription"></div></div>
       <!-- main div -->
       <main class="mdl-layout__content main_content" id="main">
         <!-- loading button -->
