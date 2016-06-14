@@ -68,7 +68,7 @@ fetch('./data/styles.json')
     styleUrl += '-page-' + pageId + '.json';
   }
   else{
-    styleUrl += '.json';
+    styleUrl += '-page-' + 1 + '.json';
   }
 
   // Fetch the associated beers

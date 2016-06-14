@@ -38,6 +38,8 @@
 
     .main_content{
       margin: 0 auto;
+      border-top: .1rem solid #e4e4e4;
+      padding-top: 20px;
     }
 
     .mdl-layout-title a {
@@ -61,6 +63,29 @@
         font-family: 'Gabriela', serif;
     }
 
+    .learn_intro{
+      font-size: 20px;padding-bottom: 180px;width: 80%;text-align: center;line-height: 40px;margin-top: 250px;
+    }
+
+    .learn_title{
+      font-size: 40px;padding-top:100px; padding-bottom: 50px;font-family: 'Gabriela', serif;
+    }
+
+    .map_image { 
+       position: relative; 
+       width: 100%;
+    }
+
+    .image_text { 
+        position: absolute;
+        top: 200px;
+        width: 100%;
+        font-family: 'Gabriela', serif;
+        font-size: 80px;
+        line-height: 100px;
+        text-align: center;
+        color: #fff;
+    }
     </style>
   </head>
   <body>
@@ -74,7 +99,7 @@
           <div class="mdl-layout-spacer"></div>
           <!-- Navigation -->
           <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" style="font-size: 20px;" href="/">Home</a>
+            <a class="mdl-navigation__link" style="font-size: 20px;" href="./">Home</a>
             <a class="mdl-navigation__link" style="font-size: 20px;" href="./about.html">About</a>
           </nav>
         </div>
@@ -82,13 +107,16 @@
         <div id="tagline" class="mdl-layout__header-row"><div class="mdl-grid styleTagline">The Ultimate Guide to Beer all around the World</div></div>
       </header>
       <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title"><a href="/">Progressive Beer</a></span>
+        <span class="mdl-layout-title"><a href="./">Progressive Beer</a></span>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="">Home</a>
+          <a class="mdl-navigation__link" href="./">Home</a>
           <a class="mdl-navigation__link" href="./about.html">About</a>
         </nav>
       </div>
-        <!-- main div -->
+      <!-- intro -->
+      <div class="mdl-layout__header-row learn_title"><div class="mdl-grid">Learn</div></div>
+      <div class="mdl-layout__header-row" style="margin-bottom: 150px;"><div class="mdl-grid learn_intro">There are so many great beers around the world. Sometimes it can be hard to keep track of all the different kinds! Progressive Beer is a handy web app that is designed to help you learn everything there is to know about beers! Learn more about each beer style by selecing one from the list below.</div></div>
+      <!-- main div -->
       <main class="mdl-layout__content main_content" id="main">
         <!-- loading button -->
         <div class="mdl-grid" style="padding-top: 120px;" id="loading-button">
@@ -97,65 +125,29 @@
           <div class="mdl-cell mdl-cell--5-col"></div>
         </div>
       </main>
+      <!-- map image -->
+      <div class="map_image">
+      <img src="./images/beer-map.png" alt="Beer from around the world" />
+      <div class="image_text">Beer from all around the world!</div>
+      </div>
       <!-- footer -->
       <footer class="mdl-mega-footer">
         <div class="mdl-mega-footer__middle-section">
-      <div class="mdl-mega-footer__drop-down-section">
-        <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
-        <h1 class="mdl-mega-footer__heading">Features</h1>
-        <ul class="mdl-mega-footer__link-list">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Terms</a></li>
-          <li><a href="#">Partners</a></li>
-          <li><a href="#">Updates</a></li>
-        </ul>
-      </div>
-
-      <div class="mdl-mega-footer__drop-down-section">
-        <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
-        <h1 class="mdl-mega-footer__heading">Details</h1>
-        <ul class="mdl-mega-footer__link-list">
-          <li><a href="#">Specs</a></li>
-          <li><a href="#">Tools</a></li>
-          <li><a href="#">Resources</a></li>
-        </ul>
-      </div>
-
-      <div class="mdl-mega-footer__drop-down-section">
-        <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
-        <h1 class="mdl-mega-footer__heading">Technology</h1>
-        <ul class="mdl-mega-footer__link-list">
-          <li><a href="#">How it works</a></li>
-          <li><a href="#">Patterns</a></li>
-          <li><a href="#">Usage</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Contracts</a></li>
-        </ul>
-      </div>
-
-      <div class="mdl-mega-footer__drop-down-section">
-        <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
-        <h1 class="mdl-mega-footer__heading">FAQ</h1>
-        <ul class="mdl-mega-footer__link-list">
-          <li><a href="#">Questions</a></li>
-          <li><a href="#">Answers</a></li>
-          <li><a href="#">Contact us</a></li>
-        </ul>
-      </div>
-
+          <div class="mdl-mega-footer__drop-down-section">
+            <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+            <h1 class="mdl-mega-footer__heading">More Resources</h1>
+            <ul class="mdl-mega-footer__link-list">
+              <li>All data supplied by <a href="http://www.brewerydb.com/">BreweryDB</a></li>
+              <li><a href="./">Home</a></li>
+              <li><a href="./about.html">About</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mdl-mega-footer__bottom-section">
+          Made with ❤ by <a href="http://deanhume.com">DEAN HUME</a>
+        </div>
+    </footer>
     </div>
-
-    <div class="mdl-mega-footer__bottom-section">
-      <div class="mdl-logo">Title</div>
-      <ul class="mdl-mega-footer__link-list">
-        <li><a href="#">Help</a></li>
-        <li><a href="#">Privacy & Terms</a></li>
-      </ul>
-    </div>
-
-  </footer>
-    </div>
-
     <!-- scripts -->
     <script src="./js/fetch.js"></script>
     <script async src="./js/index.js"></script>
