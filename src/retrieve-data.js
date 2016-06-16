@@ -11,7 +11,7 @@ app.use("/data", express.static(__dirname + '/data'));
 // Get the home page
 app.get('/', function (req, res) {
 // Loop through each style
-for(var styleId = 4; styleId <= 20; styleId++) {
+for(var styleId = 31; styleId <= 40; styleId++) {
 
   var newBeerUrl = 'http://api.brewerydb.com/v2/beers?styleId=' + styleId + '&key=4f01238618e344bee9537ae5f5bb74cf&withBreweries=Y';
   console.log('Hitting this style Url:', newBeerUrl);
@@ -35,6 +35,8 @@ for(var styleId = 4; styleId <= 20; styleId++) {
     fs.writeFile(fileName, beerResults.getBody());
     }
   }
+
+  res.send('Processing Results');
 });
 
 // Open the server
