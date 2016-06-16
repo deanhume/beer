@@ -1,8 +1,8 @@
 // Get the details from the querystring
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
-  url = url.toLowerCase(); // This is just to avoid case sensitiveness
-  name = name.replace(/[\[\]]/g, "\\$&").toLowerCase();// This is just to avoid case sensitiveness for query parameter name
+  url = url.toLowerCase(); 
+  name = name.replace(/[\[\]]/g, "\\$&").toLowerCase();
   var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
   results = regex.exec(url);
   if (!results) return null;
@@ -19,6 +19,16 @@ function createHeroText(beerName){
 function createHeroStyleText(tagline){
   var heroStyleName = '<div class="mdl-grid styleTagline">{{tagline}}</div>';
   return heroStyleName.replace('{{tagline}}', tagline);
+}
+
+// Sometimes the API returns empty results
+function cleanUnknownText(text){
+  if (text != undefined){
+    return text;
+  }
+  else{
+    return 'N/A';
+  }
 }
 
 var styleUrl = getParameterByName('styleurl');
@@ -43,7 +53,7 @@ fetch(styleUrl)
 
     // Update the beer description
     var beerDescription = htmlDocument.getElementById('beer-description');
-    beerDescription.innerHTML = beer.description;
+    beerDescription.innerHTML = cleanUnknownText(beer.description);
 
     // Update the beer image
     if (beer.labels)
@@ -93,13 +103,13 @@ fetch(styleUrl)
     // Update the template
     var beerDetails = htmlDocument.getElementById('details');
 
-    detailsTemplate = detailsTemplate.replace('{{ibu}}', beer.ibu);
-    detailsTemplate = detailsTemplate.replace('{{abvMin}}', beer.style.abvMin);
-    detailsTemplate = detailsTemplate.replace('{{abvMax}}', beer.style.abvMax);
-    detailsTemplate = detailsTemplate.replace('{{fgMin}}', beer.style.fgMin);
-    detailsTemplate = detailsTemplate.replace('{{fgMax}}', beer.style.fgMax);
-    detailsTemplate = detailsTemplate.replace('{{srmMin}}', beer.style.srmMin);
-    detailsTemplate = detailsTemplate.replace('{{srmMax}}', beer.style.srmMax);
+    detailsTemplate = detailsTemplate.replace('{{ibu}}', cleanUnknownText(beer.ibu));
+    detailsTemplate = detailsTemplate.replace('{{abvMin}}', cleanUnknownText(beer.style.abvMin));
+    detailsTemplate = detailsTemplate.replace('{{abvMax}}', cleanUnknownText(beer.style.abvMax));
+    detailsTemplate = detailsTemplate.replace('{{fgMin}}', cleanUnknownText(beer.style.fgMin));
+    detailsTemplate = detailsTemplate.replace('{{fgMax}}', cleanUnknownText(beer.style.fgMax));
+    detailsTemplate = detailsTemplate.replace('{{srmMin}}', cleanUnknownText(beer.style.srmMin));
+    detailsTemplate = detailsTemplate.replace('{{srmMax}}', cleanUnknownText(beer.style.srmMax));
 
     beerDetails.innerHTML = detailsTemplate;
 
@@ -143,12 +153,12 @@ fetch(styleUrl)
    // Update the template
    var breweryDetails = htmlDocument.getElementById('breweryDetails');
 
-   breweryTemplate = breweryTemplate.replace('{{name}}', beer.breweries[0].name);
-   breweryTemplate = breweryTemplate.replace('{{description}}', beer.breweries[0].description);
-   breweryTemplate = breweryTemplate.replace('{{website}}', beer.breweries[0].website);
-   breweryTemplate = breweryTemplate.replace('{{{website}}}', beer.breweries[0].website);
-   breweryTemplate = breweryTemplate.replace('{{established}}', beer.breweries[0].established);
-
+   breweryTemplate = breweryTemplate.replace('{{name}}', cleanUnknownText(beer.breweries[0].name));
+   breweryTemplate = breweryTemplate.replace('{{description}}', cleanUnknownText(beer.breweries[0].description));
+   breweryTemplate = breweryTemplate.replace('{{website}}', cleanUnknownText(beer.breweries[0].website));
+   breweryTemplate = breweryTemplate.replace('{{{website}}}', cleanUnknownText(beer.breweries[0].website));
+   breweryTemplate = breweryTemplate.replace('{{established}}', cleanUnknownText(beer.breweries[0].established));
+   
    breweryDetails.innerHTML = breweryTemplate;
 
   // Kill the loading icon
