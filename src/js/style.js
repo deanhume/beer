@@ -63,8 +63,8 @@ fetch('./data/styles.json')
   styleHeroElement.innerHTML += createHeroText(style.name);
 
   // Append the description
-  var styleHeroElement = document.getElementById('styleDescription');
-  styleHeroElement.innerHTML += style.description;
+  var styleHeroDescription = document.getElementById('styleDescription');
+  styleHeroDescription.innerHTML += style.description;
 
   // Check if we are being page
   var styleUrl = './data/beers-style-' + styleId;

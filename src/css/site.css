@@ -95,7 +95,7 @@
        width: 100%;
     }
 
-    .image_text { 
+    .image_text {
         position: absolute;
         top: 200px;
         width: 100%;
@@ -135,4 +135,29 @@
 
     .mdl-card i{
         font-size: 80px;
+    }
+
+    #drawer{
+        font-size: 25px;
+        color: black;
+    }
+
+    @media only screen and (max-width: 767px) and (min-width: 480px) { 
+        .image_text {
+            position: absolute;
+            top: 50px;
+            width: 100%;
+            font-family: 'Gabriela', serif;
+            font-size: 50px;
+            line-height: 100px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .learn_title {
+            font-size: 40px;
+            padding-top: 100px;
+            padding-bottom: 50px;
+            font-family: 'Gabriela', serif;
+        }
     }
