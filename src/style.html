@@ -6,67 +6,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="./css/material.indigo-pink.min.css">
     <link href='https://fonts.googleapis.com/css?family=Gabriela|Open+Sans' rel='stylesheet' type='text/css'>
-    <style>
-    .header-background {
-      background: url('/images/styles.jpg') center / cover;
-          height: 400px;
-    }
-    .demo-layout-transparent .mdl-layout__header,
-    .demo-layout-transparent .mdl-layout__drawer-button {
-      /* This background is dark, so we set text to white. Use 87% black instead if
-         your background is light. */
-      color: white;
-    }
-
-    .demo-card-square.mdl-card {
-      width: 320px;
-      height: 320px;
-    }
-    .demo-card-square > .mdl-card__title {
-      color: #fff;
-    }
-
-    .main_content{
-      margin: 0 auto;
-      border-top: .1rem solid #e4e4e4;
-    }
-
-    .style_name{
-      margin-top: 15%;
-      font-size: 100px;
-      letter-spacing: -7px;
-      font-family: 'Gabriela', serif;
-    }
-
-    .mdl-layout-title a {
-      font-family: Gabriela;
-      text-decoration: none;
-      color: white;
-      font-size: 30px;
-      letter-spacing: -2px;
-    }
-
-    .learn_intro{
-      font-size: 20px;padding-bottom: 180px;width: 100%;text-align: center;line-height: 40px;margin-top: 550px;
-    }
-
-    .learn_title{
-      font-size: 40px;padding-top:100px; padding-bottom: 50px;font-family: 'Gabriela', serif;
-    }
-
-    .truncate {
-      width: 250px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    </style>
+    <link rel="stylesheet" href="./css/site.css">  
   </head>
   <body>
     <!-- header -->
     <div class="demo-layout-transparent mdl-layout mdl-js-layout">
-      <header class="mdl-layout__header mdl-layout__header--transparent header-background">
+      <header class="mdl-layout__header mdl-layout__header--transparent header-background-style">
         <div class="mdl-layout__header-row" style="border-bottom: .1rem solid hsla(0,0%,100%,.3);">
           <!-- Title -->
           <span class="mdl-layout-title"><a href="/">Progressive Beer</a></span>
@@ -74,8 +19,8 @@
           <div class="mdl-layout-spacer"></div>
           <!-- Navigation -->
           <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="./">Home</a>
-            <a class="mdl-navigation__link" href="./about.html">About</a>
+            <a class="mdl-navigation__link link_size" href="./">Home</a>
+            <a class="mdl-navigation__link link_size" href="./about.html">About</a>
           </nav>
         </div>
         <div id="styleName" class="mdl-layout__header-row"></div>
@@ -89,7 +34,7 @@
       </div>
       <!-- intro -->
       <div class="mdl-layout__header-row learn_title"><div class="mdl-grid">This Beer's Style</div></div>
-      <div class="mdl-layout__header-row" style="margin-bottom: 400px;"><div class="mdl-grid learn_intro" id="styleDescription"></div></div>
+      <div class="mdl-layout__header-row" style="margin-bottom: 400px;"><div class="mdl-grid learn_intro_style" id="styleDescription"></div></div>
       <!-- main div -->
       <main class="mdl-layout__content main_content" id="main">
         <!-- loading button -->

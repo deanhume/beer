@@ -36,7 +36,7 @@ for(var styleId = 31; styleId <= 40; styleId++) {
     }
   }
 
-  res.send('Processing Results');
+  res.send('Finished processing');
 });
 
 // Open the server

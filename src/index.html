@@ -6,87 +6,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="./css/material.indigo-pink.min.css">
     <link href='https://fonts.googleapis.com/css?family=Gabriela|Open+Sans' rel='stylesheet' type='text/css'>
-    <style>
-    .header-background {
-      background: url('/images/beer.jpg') center / cover;
-      height: 400px;
-    }
-    .demo-layout-transparent .mdl-layout__header,
-    .demo-layout-transparent .mdl-layout__drawer-button {
-      color: white;
-    }
-
-    .demo-card-square.mdl-card {
-      width: 320px;
-      height: 320px;
-    }
-    .demo-card-square > .mdl-card__title {
-      color: #fff;
-    }
-
-    .palebeer{
-      background: url('/images/srm/light.jpg') center / cover;
-    }
-
-    .amberbeer{
-      background: url('/images/srm/amber.jpg') center / cover;
-    }
-
-    .darkbeer{
-      background: url('/images/srm/dark.jpg') center / cover;
-    }
-
-    .main_content{
-      margin: 0 auto;
-      border-top: .1rem solid #e4e4e4;
-      padding-top: 20px;
-    }
-
-    .mdl-layout-title a {
-      font-family: Gabriela;
-      text-decoration: none;
-      color: white;
-      font-size: 30px;
-      letter-spacing: -2px;
-    }
-
-    .styleTagline {
-      margin-top: 15%;
-      font-size: 25px;
-      font-style: italic;
-    }
-
-    .style_name{
-        margin-top: 15%;
-        font-size: 100px;
-        letter-spacing: -7px;
-        font-family: 'Gabriela', serif;
-    }
-
-    .learn_intro{
-      font-size: 20px;padding-bottom: 180px;width: 80%;text-align: center;line-height: 40px;margin-top: 250px;
-    }
-
-    .learn_title{
-      font-size: 40px;padding-top:100px; padding-bottom: 50px;font-family: 'Gabriela', serif;
-    }
-
-    .map_image { 
-       position: relative; 
-       width: 100%;
-    }
-
-    .image_text { 
-        position: absolute;
-        top: 200px;
-        width: 100%;
-        font-family: 'Gabriela', serif;
-        font-size: 80px;
-        line-height: 100px;
-        text-align: center;
-        color: #fff;
-    }
-    </style>
+    <link rel="stylesheet" href="./css/site.css">
   </head>
   <body>
     <!-- header -->
@@ -99,8 +19,8 @@
           <div class="mdl-layout-spacer"></div>
           <!-- Navigation -->
           <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" style="font-size: 20px;" href="./">Home</a>
-            <a class="mdl-navigation__link" style="font-size: 20px;" href="./about.html">About</a>
+            <a class="mdl-navigation__link link_size" href="./">Home</a>
+            <a class="mdl-navigation__link link_size" href="./about.html">About</a>
           </nav>
         </div>
         <div id="tagline" class="mdl-layout__header-row"><div class="mdl-grid style_name">Progressive Beer</div></div>
@@ -127,7 +47,7 @@
       </main>
       <!-- map image -->
       <div class="map_image">
-      <img src="./images/beer-map.png" alt="Beer from around the world" />
+      <img src="./images/beer-map.png" style="width: 100%;" alt="Beer from around the world" />
       <div class="image_text">Beer from all around the world!</div>
       </div>
       <!-- footer -->

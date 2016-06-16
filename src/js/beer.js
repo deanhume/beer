@@ -103,6 +103,54 @@ fetch(styleUrl)
 
     beerDetails.innerHTML = detailsTemplate;
 
-    // Kill the loading icon
-    htmlDocument.getElementById('loading-button').style.display = "none";
+    // The Brewery details
+    var breweryTemplate = "<section class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp\" style=\"margin-top: 50px;margin-bottom: 50px;width: 60%;\"> \
+     <div class=\"mdl-card mdl-cell mdl-cell--12-col\"> \
+       <div class=\"mdl-card__supporting-text mdl-grid mdl-grid--no-spacing\" style=\"padding-bottom: 30px;\"> \
+       <h4 class=\"mdl-cell mdl-cell--12-col\" style=\"padding-top: 20px;\">Brewery Info</h4> \
+         <div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"> \
+           <i class=\"material-icons orange600\" style=\"padding-top: 20px;\">local_drink</i> \
+         </div> \
+         <div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"> \
+           <h5>Brewery Name</h5> \
+           {{name}} \
+         </div> \
+         <div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"> \
+           <i class=\"material-icons orange600\" style=\"padding-top: 20px;\">help</i> \
+         </div> \
+         <div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"> \
+           <h5>About</h5> \
+           {{description}} \
+         </div> \
+         <div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"> \
+            <i class=\"material-icons orange600\" style=\"padding-top: 20px;\">http</i> \
+         </div> \
+         <div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"> \
+           <h5>Website</h5> \
+           <a href=\"{{website}}\">{{{website}}}</a> \
+         </div> \
+         <div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"> \
+            <i class=\"material-icons orange600\" style=\"padding-top: 10px;\">cake</i> \
+         </div> \
+         <div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"> \
+           <h5>Established</h5> \
+           {{established}} \
+         </div> \
+       </div> \
+     </div> \
+   </section>";
+
+   // Update the template
+   var breweryDetails = htmlDocument.getElementById('breweryDetails');
+
+   breweryTemplate = breweryTemplate.replace('{{name}}', beer.breweries[0].name);
+   breweryTemplate = breweryTemplate.replace('{{description}}', beer.breweries[0].description);
+   breweryTemplate = breweryTemplate.replace('{{website}}', beer.breweries[0].website);
+   breweryTemplate = breweryTemplate.replace('{{{website}}}', beer.breweries[0].website);
+   breweryTemplate = breweryTemplate.replace('{{established}}', beer.breweries[0].established);
+
+   breweryDetails.innerHTML = breweryTemplate;
+
+  // Kill the loading icon
+  htmlDocument.getElementById('loading-button').style.display = "none";
 });
