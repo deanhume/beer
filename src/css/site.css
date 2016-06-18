@@ -178,6 +178,10 @@
           margin-top: 320px;
       }
 
+      .beer_content{
+        margin-top: 0px;
+      }
+      
       .main_content {
           margin: 0 auto;
           margin-top: 300px;
@@ -206,9 +210,7 @@
           padding-top: 300px;
       }
 
-      .beer_content{
-        margin-top: 0px;
-      }
+
 
         .beer_map_image{
           position: relative;
@@ -299,17 +301,13 @@
         }
 
         .available_beers{
-          margin-top: 350px;
+          margin-top: 890px;
         }
 
         .style_hero_text{
           width: 80%;
           text-align: center;
           line-height: 54px;
-        }
-
-        .beer_content{
-          margin-top: 0px;
         }
 
         .beer_map_image{
@@ -324,7 +322,15 @@
 
         .main_content {
           margin: 0 auto;
-          /* margin-top: 550px; */
+          margin-top: 550px;
       }
-    }
-    }
+       
+       .beer_content{
+          margin-top: 0px;
+        }
+
+      .mdl-card i {
+          font-size: 40px;
+          padding-top: 30px;
+      }
+}
