@@ -12,7 +12,7 @@ function getParameterByName(name, url) {
 
 // Create the hero text from the style name
 function createHeroText(styleName){
-  var styleHeroName = '<div class="mdl-grid style_name">{{styleName}}</div>';
+  var styleHeroName = '<div class="mdl-grid style_name style_hero_text">{{styleName}}</div>';
   return styleHeroName.replace('{{styleName}}', styleName);
 }
 
@@ -56,7 +56,7 @@ fetch('./data/styles.json')
   var styleId = getParameterByName('id');
   var pageId = getParameterByName('page');
   var style = body.data[styleId];
-  var result = '<div class="mdl-layout__header-row learn_title"><div class="mdl-grid">Available Beers</div></div>';
+  var result = '<div class="mdl-layout__header-row learn_title available_beers"><div class="mdl-grid">Available Beers</div></div>';
 
   // Append the style name in the hero image
   var styleHeroElement = document.getElementById('styleName');

@@ -45,7 +45,7 @@
 
     .main_content{
       margin: 0 auto;
-      margin-top: 350px;
+      margin-top: 550px;
     }
 
     .grid_border{
@@ -81,7 +81,12 @@
     }
 
     .learn_intro{
-      font-size: 20px;padding-bottom: 180px;width: 80%;text-align: center;line-height: 40px;margin-top: 250px;
+      font-size: 20px;
+      padding-bottom: 180px;
+      width: 80%;
+      text-align: center;
+      line-height: 40px;
+      margin-top: 250px;
     }
 
     .learn_intro_style{
@@ -90,7 +95,10 @@
     }
 
     .learn_title{
-      font-size: 40px;padding-top:100px; padding-bottom: 50px;font-family: 'Gabriela', serif;
+      font-size: 40px;
+      padding-top:100px;
+      padding-bottom: 50px;
+      font-family: 'Gabriela', serif;
     }
 
     .map_image {
@@ -160,14 +168,14 @@
 
         .learn_title {
             font-size: 40px;
-            padding-top: 100px;
             padding-bottom: 50px;
             font-family: 'Gabriela', serif;
+            padding-left: 0px;
         }
 
         .learn_intro {
             font-size: 20px;
-            padding-bottom: 180px;
+            /* padding-bottom: 180px; */
             width: 80%;
             text-align: center;
             line-height: 40px;
@@ -182,7 +190,7 @@
         }
 
         .styleTagline {
-            margin-top: 16%;
+            margin-top: 28%;
             font-size: 15px;
             font-style: italic;
             width: 180px;
@@ -195,5 +203,29 @@
 
         .text_margin{
           margin-top: 25%;
+        }
+
+        .hero_title{
+          padding-left: 0px;
+        }
+
+        .learn_intro_style {
+            font-size: 20px;
+            padding-bottom: 180px;
+            width: 80%;
+            text-align: center;
+            line-height: 40px;
+            margin-top: 1000px;
+            padding-top: 400px;
+        }
+
+        .available_beers{
+          margin-top: 350px;
+        }
+
+        .style_hero_text{
+          width: 80%;
+          text-align: center;
+          line-height: 54px;
         }
     }

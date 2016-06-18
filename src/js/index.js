@@ -34,7 +34,7 @@ fetch('./data/styles.json')
       // We want to keep a responsive grid in place
       if (innerCount % 3 === 0)
       {
-        cardDetails = '<div class="mdl-grid grid_border">' + innerCardDetails + cardDetails; //add the opening tag
+        cardDetails = '<div class="mdl-grid">' + innerCardDetails + cardDetails; //add the opening tag
         cardDetails = cardDetails + '</div>'; // closing tag
         result += cardDetails;
         innerCardDetails = ""; // reset the innercard details
