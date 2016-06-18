@@ -45,8 +45,11 @@
 
     .main_content{
       margin: 0 auto;
+      margin-top: 350px;
+    }
+
+    .grid_border{
       border-top: .1rem solid #e4e4e4;
-      padding-top: 20px;
     }
 
     .mdl-layout-title a {
@@ -90,8 +93,8 @@
       font-size: 40px;padding-top:100px; padding-bottom: 50px;font-family: 'Gabriela', serif;
     }
 
-    .map_image { 
-       position: relative; 
+    .map_image {
+       position: relative;
        width: 100%;
     }
 
@@ -142,13 +145,14 @@
         color: black;
     }
 
-    @media only screen and (max-width: 767px) and (min-width: 480px) { 
+    /* Mobile */
+    @media only screen and (min-width: 280px) and (max-width: 767px) {
         .image_text {
             position: absolute;
-            top: 50px;
+            top: 10px;
             width: 100%;
             font-family: 'Gabriela', serif;
-            font-size: 50px;
+            font-size: 26px;
             line-height: 100px;
             text-align: center;
             color: #fff;
@@ -159,5 +163,37 @@
             padding-top: 100px;
             padding-bottom: 50px;
             font-family: 'Gabriela', serif;
+        }
+
+        .learn_intro {
+            font-size: 20px;
+            padding-bottom: 180px;
+            width: 80%;
+            text-align: center;
+            line-height: 40px;
+            margin-top: 650px;
+        }
+
+        .style_name {
+            margin-top: 75%;
+            font-size: 50px;
+            letter-spacing: -7px;
+            font-family: 'Gabriela', serif;
+        }
+
+        .styleTagline {
+            margin-top: 16%;
+            font-size: 15px;
+            font-style: italic;
+            width: 180px;
+            text-align: center;
+        }
+
+        .mdl-layout__header-row .mdl-navigation__link{
+          display: none;
+        }
+
+        .text_margin{
+          margin-top: 25%;
         }
     }
