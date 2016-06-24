@@ -1,7 +1,7 @@
 // Get the details from the querystring
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
-  url = url.toLowerCase(); 
+  url = url.toLowerCase();
   name = name.replace(/[\[\]]/g, "\\$&").toLowerCase();
   var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
   results = regex.exec(url);
@@ -17,7 +17,7 @@ function createHeroText(beerName){
 }
 
 function createHeroStyleText(tagline){
-  var heroStyleName = '<div class="mdl-grid styleTagline">{{tagline}}</div>';
+  var heroStyleName = '<div class="mdl-grid styleTagline tagline-padding">{{tagline}}</div>';
   return heroStyleName.replace('{{tagline}}', tagline);
 }
 
@@ -158,7 +158,7 @@ fetch(styleUrl)
    breweryTemplate = breweryTemplate.replace('{{website}}', cleanUnknownText(beer.breweries[0].website));
    breweryTemplate = breweryTemplate.replace('{{{website}}}', cleanUnknownText(beer.breweries[0].website));
    breweryTemplate = breweryTemplate.replace('{{established}}', cleanUnknownText(beer.breweries[0].established));
-   
+
    breweryDetails.innerHTML = breweryTemplate;
 
   // Kill the loading icon

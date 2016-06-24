@@ -181,7 +181,7 @@
       .beer_content{
         margin-top: 0px;
       }
-      
+
       .main_content {
           margin: 0 auto;
           margin-top: 300px;
@@ -236,6 +236,15 @@
 
     /* Mobile */
     @media only screen and (min-width: 280px) and (max-width: 767px) {
+
+        .about-footer{
+          margin-top: 20px;
+        }
+
+        .tagline-padding{
+          padding-left: 100px;
+        }
+
         .image_text {
             position: absolute;
             top: 10px;
@@ -261,6 +270,7 @@
             text-align: center;
             line-height: 40px;
             margin-top: 650px;
+            margin-left: 0px;
         }
 
         .style_name {
@@ -324,7 +334,7 @@
           margin: 0 auto;
           margin-top: 550px;
       }
-       
+
        .beer_content{
           margin-top: 0px;
         }
