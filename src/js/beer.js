@@ -31,8 +31,25 @@ function cleanUnknownText(text){
   }
 }
 
-var styleUrl = getParameterByName('styleurl');
+// Get the url of the data
+function createStyleUrl(styleId, pageId)
+{
+  var styleUrl = './data/beers-style-' + styleId;
+  if (pageId > 1){
+    styleUrl += '-page-' + pageId + '.json';
+  }
+  else{
+    styleUrl += '-page-' + 1 + '.json';
+  }
+
+  return styleUrl;
+}
+
+var styleId = getParameterByName('styleId');
+var pageId = getParameterByName('pageId');
 var beerId = getParameterByName('id');
+
+var styleUrl = createStyleUrl(styleId, pageId);
 
 // Fetch the beer styles
 fetch(styleUrl)
@@ -160,6 +177,10 @@ fetch(styleUrl)
    breweryTemplate = breweryTemplate.replace('{{established}}', cleanUnknownText(beer.breweries[0].established));
 
    breweryDetails.innerHTML = breweryTemplate;
+
+   // Set the back link
+   var backlink = htmlDocument.getElementById('backlink');
+   backlink.href = "./style.html?id=" + styleId + "&pageId=" + pageId;
 
   // Kill the loading icon
   htmlDocument.getElementById('loading-button').style.display = "none";

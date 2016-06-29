@@ -16,6 +16,20 @@ function createHeroText(styleName){
   return styleHeroName.replace('{{styleName}}', styleName);
 }
 
+// Get the url of the data
+function createStyleUrl(styleId, pageId)
+{
+  var styleUrl = './data/beers-style-' + styleId;
+  if (pageId > 1){
+    styleUrl += '-page-' + pageId + '.json';
+  }
+  else{
+    styleUrl += '-page-' + 1 + '.json';
+  }
+
+  return styleUrl;
+}
+
 function createPaging(numberOfPages, currentPage, styleId)
 {
   var result = "";
@@ -23,7 +37,7 @@ function createPaging(numberOfPages, currentPage, styleId)
   // Get the number of pages to cycle through
   if ((numberOfPages > 1) && (currentPage < numberOfPages))
   {
-    var pagingHtml = "<div class=\"mdl-grid\"><div class=\"mdl-cell mdl-cell--4-col\"></div><div class=\"mdl-cell mdl-cell--4-col\">{{previousButton}}<a style=\"float:right;\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" href='/style.html?id={{styleId}}&page={{page}}'>Next Page</a></div><div class=\"mdl-cell mdl-cell--4-col\"></div>";
+    var pagingHtml = "<div class=\"mdl-grid\"><div class=\"mdl-cell mdl-cell--4-col\"></div><div class=\"mdl-cell mdl-cell--4-col\">{{previousButton}}<a style=\"float:right;\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" href='/style.html?id={{styleId}}&pageId={{page}}'>Next Page</a></div><div class=\"mdl-cell mdl-cell--4-col\"></div>";
 
     var page = currentPage + 1;
     pagingHtml = pagingHtml.replace('{{styleId}}', styleId);
@@ -34,7 +48,7 @@ function createPaging(numberOfPages, currentPage, styleId)
 
   // Do we need a back button?
   if ((numberOfPages > 1) && currentPage > 1){
-    result = result.replace('{{previousButton}}', "<a style=\"float:left;\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" href='/style.html?id={{styleId}}&page={{previousPage}}'>Previous Page</a><div></div>");
+    result = result.replace('{{previousButton}}', "<a style=\"float:left;\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" href='/style.html?id={{styleId}}&pageId={{previousPage}}'>Previous Page</a><div></div>");
 
     var previousPage = currentPage - 1;
     result = result.replace('{{styleId}}', styleId);
@@ -54,7 +68,7 @@ fetch('./data/styles.json')
 }).then(function(body) {
 
   var styleId = getParameterByName('id');
-  var pageId = getParameterByName('page');
+  var pageId = getParameterByName('pageId');
   var style = body.data[styleId];
   var result = '<div class="mdl-layout__header-row learn_title available_beers"><div class="mdl-grid">Available Beers</div></div>';
 
@@ -66,14 +80,8 @@ fetch('./data/styles.json')
   var styleHeroDescription = document.getElementById('styleDescription');
   styleHeroDescription.innerHTML += style.description;
 
-  // Check if we are being page
-  var styleUrl = './data/beers-style-' + styleId;
-  if (pageId > 1){
-    styleUrl += '-page-' + pageId + '.json';
-  }
-  else{
-    styleUrl += '-page-' + 1 + '.json';
-  }
+  // Get the url of our beer styles
+  var styleUrl = createStyleUrl(styleId, pageId);
 
   // Fetch the associated beers
   var innerCardDetails = "";
@@ -96,7 +104,7 @@ fetch('./data/styles.json')
         if (!beerDescription){ beerDescription = ""; } // Check if we have a value
         cardDetails = cardDetails.replace('{{beerdescription}}', beerDescription);
 
-        cardDetails = cardDetails.replace('{{beerlink}}', "/beer.html?id=" + i + "&styleurl=" + styleUrl);
+        cardDetails = cardDetails.replace('{{beerlink}}', "/beer.html?id=" + i + "&styleId=" + styleId+ "&pageId=" + pageId);
 
         // Display the label if we have one
         if (beer.labels)
