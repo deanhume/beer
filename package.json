@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "grunt": "*",
+    "grunt-cli": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-htmlmin": "*",
+    "grunt-processhtml": "*",
+    "grunt-critical-css": "*",
+    "grunt-critical": "*",
+    "grunt-contrib-copy": "*"
+  }
+}
