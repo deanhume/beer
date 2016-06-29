@@ -161,9 +161,30 @@
     .footer_margin{
       margin-bottom: 150px;
     }
+    .title_width{
+      min-width: 80%;
+    }
+
+    .beer_icon{
+      width: 35px;
+      color: white;
+      margin: auto;
+      display: block;
+    }
+
+    /* Desktop */
+    @media only screen and (min-width: 1025px) {
+      .hide_desktop{
+        display: none!important;
+      }
+    }
 
     /* Tablet */
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
+      .hide_tablet{
+        display: none!important;
+      }
+
       .demo-card-square.mdl-card {
           width: 150px;
           height: 220px;
@@ -236,6 +257,9 @@
 
     /* Mobile */
     @media only screen and (min-width: 280px) and (max-width: 767px) {
+        .hide_mobile{
+          display: none!important;
+        }
 
         .about-footer{
           margin-top: 20px;
@@ -251,7 +275,7 @@
             width: 100%;
             font-family: 'Gabriela', serif;
             font-size: 26px;
-            line-height: 100px;
+            line-height: 40px;
             text-align: center;
             color: #fff;
         }
