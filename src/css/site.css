@@ -1,20 +1,20 @@
    .header-background {
-      background: url('./images/beer.jpg') center / cover;
+      background: url('https://deanhume.github.io/beer/images/beer.jpg') center / cover;
       height: 400px;
     }
 
     .header-background-style {
-      background: url('./images/styles.jpg') center / cover;
+      background: url('https://deanhume.github.io/beer/images/styles.jpg') center / cover;
           height: 400px;
     }
 
     .header-background-beer {
-      background: url('./images/beer-page.jpg') center / cover;
+      background: url('https://deanhume.github.io/beer/images/beer-page.jpg') center / cover;
       height: 400px;
     }
 
     .header-background-about {
-      background: url('./images/about.jpg') center / cover;
+      background: url('https://deanhume.github.io/beer/images/about.jpg') center / cover;
       height: 400px;
     }
 
@@ -32,15 +32,15 @@
     }
 
     .palebeer{
-      background: url('./images/srm/light.jpg') center / cover;
+      background: url('https://deanhume.github.io/beer/images/srm/light.jpg') center / cover;
     }
 
     .amberbeer{
-      background: url('./images/srm/amber.jpg') center / cover;
+      background: url('https://deanhume.github.io/beer/images/srm/amber.jpg') center / cover;
     }
 
     .darkbeer{
-      background: url('./images/srm/dark.jpg') center / cover;
+      background: url('https://deanhume.github.io/beer/images/srm/dark.jpg') center / cover;
     }
 
     .main_content{
@@ -182,22 +182,22 @@
     /* Tablet */
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
       .header-background {
-         background: url('./images/beer-mobile.jpg') center / cover;
+         background: url('https://deanhume.github.io/beer/images/beer-mobile.jpg') center / cover;
          height: 400px;
        }
 
        .header-background-style {
-         background: url('./images/styles-mobile.jpg') center / cover;
+         background: url('https://deanhume.github.io/beer/images/styles-mobile.jpg') center / cover;
              height: 400px;
        }
 
        .header-background-beer {
-         background: url('./images/beer-page-mobile.jpg') center / cover;
+         background: url('https://deanhume.github.io/beer/images/beer-page-mobile.jpg') center / cover;
          height: 400px;
        }
 
        .header-background-about {
-         background: url('./images/about-mobile.jpg') center / cover;
+         background: url('https://deanhume.github.io/beer/images/about-mobile.jpg') center / cover;
          height: 400px;
        }
 
@@ -278,22 +278,22 @@
     /* Mobile */
     @media only screen and (min-width: 280px) and (max-width: 767px) {
       .header-background {
-         background: url('./images/beer-mobile.jpg') center / cover;
+         background: url('https://deanhume.github.io/beer/images/beer-mobile.jpg') center / cover;
          height: 400px;
        }
 
        .header-background-style {
-         background: url('./images/styles-mobile.jpg') center / cover;
+         background: url('https://deanhume.github.io/beer/images/styles-mobile.jpg') center / cover;
              height: 400px;
        }
 
        .header-background-beer {
-         background: url('./images/beer-page-mobile.jpg') center / cover;
+         background: url('https://deanhume.github.io/beer/images/beer-page-mobile.jpg') center / cover;
          height: 400px;
        }
 
        .header-background-about {
-         background: url('./images/about-mobile.jpg') center / cover;
+         background: url('https://deanhume.github.io/beer/images/about-mobile.jpg') center / cover;
          height: 400px;
        }
 
