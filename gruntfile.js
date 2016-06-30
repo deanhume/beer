@@ -33,22 +33,39 @@ module.exports = function(grunt) {
     },
 		// Copy all of the images across to dist
 		copy: {
-		  main: {
+		  images: {
 		    expand: true,
 				flatten: true,
 				 filter: 'isFile',
 		    src: 'src/images/*',
 		    dest: 'dist/images/',
-		  }
-		},
-		// Copy all of the data across to dist
-		copy: {
-			main: {
+		  },
+			imagesSrm: {
+				expand: true,
+				flatten: true,
+				 filter: 'isFile',
+				src: 'src/images/srm/*',
+				dest: 'dist/images/srm',
+			},
+			rootFiles: {
+				expand: true,
+				flatten: true,
+				 filter: 'isFile',
+				src: 'src/*.js',
+				dest: 'dist/',
+			},
+			data: {
 				expand: true,
 				flatten: true,
 				 filter: 'isFile',
 				src: 'src/data/*',
 				dest: 'dist/data/',
+			},
+			bowerComponents: {
+				expand: true,
+				cwd: 'src/bower_components/',
+				src: '**/*',
+				dest: 'dist/bower_components/',
 			}
 		}
 	});
