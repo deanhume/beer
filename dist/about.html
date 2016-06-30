@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Progressive Beer</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='https://fonts.googleapis.com/css?family=Gabriela|Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="result.min.css"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Progressive Beer - The ultimate guide to beer around the world.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <!-- header -->
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header mdl-layout__header--transparent header-background-about">
+        <div class="mdl-layout__header-row" style="border-bottom: .1rem solid hsla(0,0%,100%,.3);">
+          <!-- Title -->
+          <span class="mdl-layout-title"><a href="/">Progressive Beer</a></span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation -->
+          <nav class="mdl-navigation">
+            <a class="mdl-navigation__link link_size" href="./">Home</a>
+            <a class="mdl-navigation__link link_size" href="./about.html">About</a>
+          </nav>
+        </div>
+        <div id="tagline" class="mdl-layout__header-row hero_title"><div class="mdl-grid style_name">Progressive Beer</div></div>
+        <div id="tagline" class="mdl-layout__header-row text_margin hero_title"><div class="mdl-grid styleTagline">The Ultimate Guide to Beer all around the World</div></div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title"><a href="./">Progressive Beer</a></span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="./">Home</a>
+          <a class="mdl-navigation__link" href="./about.html">About</a>
+        </nav>
+      </div>
+      <!-- intro -->
+      <div class="mdl-layout__header-row learn_title"><div class="mdl-grid">About</div></div>
+      <div class="mdl-layout__header-row" style="margin-bottom: 150px;"><div class="mdl-grid learn_intro">
+        <p>Progressive Beer is a web app that is designed to leverage all the great features of Service Workers and build a truly Progressive Web App.
+        If you'd like to learn more about Progressive Web Apps, I recommend checking out <a href="https://developers.google.com/web/progressive-web-apps/">this link</a> for more information. Oh, and once you've visited a web page on this site, it will be available offline!</p>
+      </div></div>
+      <!-- map image -->
+      <div class="beer_map_image">
+      <img src="./images/beer-map.png" style="width: 100%;" alt="Beer from around the world" />
+      <div class="image_text">Worldwide Beer!</div>
+      </div>
+      <!-- brewery db -->
+      <div class="mdl-layout__header-row learn_title" ><div class="mdl-grid"><img src="./images/brewerydb-logo.png" width="150px" height="150px" /></div></div>
+      <div class="mdl-layout__header-row learn_title" ><div class="mdl-grid">Our Data</div></div>
+      <div class="mdl-layout__header-row footer_margin"><div class="mdl-grid learn_intro">All of our data is supplied by the team over at BreweryDb.com. If you'd like to learn more about them, please check out their website for a huge database of breweries, beers, beer events and even brewers guilds! You can even submit new beers as the database is constantly kept up to date.</div></div>
+      <!-- footer -->
+      <footer class="mdl-mega-footer about-footer">
+        <div class="mdl-mega-footer__middle-section">
+          <div class="mdl-mega-footer__drop-down-section">
+            <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+            <h1 class="mdl-mega-footer__heading">More Resources</h1>
+            <ul class="mdl-mega-footer__link-list">
+              <li>All data supplied by <a href="http://www.brewerydb.com/">BreweryDB</a></li>
+              <li><a href="./">Home</a></li>
+              <li><a href="./about.html">About</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mdl-mega-footer__bottom-section">
+          Made with ❤ by <a href="http://deanhume.com">DEAN HUME</a>
+        </div>
+    </footer>
+    </div>
+    <!-- toast notification -->
+    <div id="offline-notification" class="mdl-js-snackbar mdl-snackbar">
+      <div class="mdl-snackbar__text"></div>
+      <button class="mdl-snackbar__action" type="button"></button>
+    </div>
+    <!-- scripts -->
+    <script src="about.min.js"></script>
+    <script>
+      // Register the service worker
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./service-worker.js').then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }).catch(function(err) {
+          // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+          });
+      }
+    </script>
+  </body>
+</html>

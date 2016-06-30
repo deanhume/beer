@@ -58,4 +58,6 @@ fetch('./data/styles.json')
   // Paint the page
   document.getElementById("main").innerHTML = result;
 
+  // Show offline
+  setTimeout(showOfflineNotification, 2000);
 });

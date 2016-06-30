@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 		cssmin: {
 			target: {
 				files: [{
-					src: ['src/material.min.css', 'src/styles.css'], dest: 'dist/result.min.css' }
+					src: ['src/css/material.min.css', 'src/css/site.css'], dest: 'dist/css/result.min.css' }
 				]}
 		},
 		// Rewrite the minifed stuff into the processed HTML file
@@ -20,28 +20,17 @@ module.exports = function(grunt) {
 				}]
 			}
 		},
-		// Extract the critical CSS
-		critical: {
-			dist: {
-				options: {
-					base: './',
-					css: [
-                'dist/result.min.css'
-            ],
-					minify: true,
-					dimensions: [{
-						width: 1300,
-						height: 900
-					},
-					{
-						width: 500,
-						height: 900
-					}]
-				},
-				src: 'dist/index.html',
-        dest: 'dist/index.html'
-			}
-		},
+		// Minify the JS files
+		uglify: {
+        dist: {
+            files: [
+                { src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/index.js'], dest: 'dist/js/index.min.js' },
+                { src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/beer.js'], dest: 'dist/js/beer.min.js' },
+                { src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/style.js'], dest: 'dist/js/style.min.js' },
+								{ src: ['src/js/material.min.js'], dest: 'dist/js/about.min.js' }
+            ]
+        }
+    },
 		// Copy all of the images across to dist
 		copy: {
 		  main: {
@@ -51,13 +40,23 @@ module.exports = function(grunt) {
 		    src: 'src/images/*',
 		    dest: 'dist/images/',
 		  }
+		},
+		// Copy all of the data across to dist
+		copy: {
+			main: {
+				expand: true,
+				flatten: true,
+				 filter: 'isFile',
+				src: 'src/data/*',
+				dest: 'dist/data/',
+			}
 		}
 	});
 
+grunt.loadNpmTasks('grunt-contrib-uglify');
 grunt.loadNpmTasks('grunt-contrib-cssmin');
 grunt.loadNpmTasks('grunt-processhtml');
-grunt.loadNpmTasks('grunt-critical');
 grunt.loadNpmTasks('grunt-contrib-copy');
 
-grunt.registerTask('default', ['cssmin', 'processhtml', 'critical', 'copy']);
+grunt.registerTask('default', ['cssmin', 'processhtml', 'copy', 'uglify']);
 };

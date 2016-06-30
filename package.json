@@ -3,10 +3,9 @@
     "grunt": "*",
     "grunt-cli": "*",
     "grunt-contrib-cssmin": "*",
+    "grunt-contrib-uglify": "*",
     "grunt-htmlmin": "*",
     "grunt-processhtml": "*",
-    "grunt-critical-css": "*",
-    "grunt-critical": "*",
     "grunt-contrib-copy": "*"
   }
 }
