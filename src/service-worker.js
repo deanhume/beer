@@ -36,9 +36,9 @@
     networkTimeoutSeconds: 4
   });
 
-  toolbox.router.get('/css/(.*)', global.toolbox.cacheFirst, {
+  toolbox.router.get('/beer/css/(.*)', global.toolbox.cacheFirst, {
     cache: {
-      name: 'stylesheets',
+      name: 'beer-stylesheets',
       maxEntries: 10,
       maxAgeSeconds: 604800
     },
@@ -46,9 +46,9 @@
     networkTimeoutSeconds: 4
   });
 
-  toolbox.router.get('/images/(.*)', global.toolbox.cacheFirst, {
+  toolbox.router.get('/beer/images/(.*)', global.toolbox.cacheFirst, {
     cache: {
-      name: 'images',
+      name: 'beer-images',
       maxEntries: 10,
       maxAgeSeconds: 604800
     },
@@ -56,9 +56,9 @@
     networkTimeoutSeconds: 4
   });
 
-  toolbox.router.get('/js/(.*)', global.toolbox.cacheFirst, {
+  toolbox.router.get('/beer/js/(.*)', global.toolbox.cacheFirst, {
     cache: {
-      name: 'javascript',
+      name: 'beer-javascript',
       maxEntries: 10,
       maxAgeSeconds: 604800
     },
@@ -77,7 +77,7 @@
     networkTimeoutSeconds: 4
   });
 
-  toolbox.router.get('/data/(.*)', global.toolbox.cacheFirst, {
+  toolbox.router.get('/beer/data/(.*)', global.toolbox.cacheFirst, {
     cache: {
       name: 'beer-data',
       maxEntries: 200,
