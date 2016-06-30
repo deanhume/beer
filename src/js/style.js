@@ -47,7 +47,7 @@ function createPaging(numberOfPages, currentPage, styleId)
   // Get the number of pages to cycle through
   if ((numberOfPages > 1) && (currentPage < numberOfPages))
   {
-    var pagingHtml = "<div class=\"mdl-grid\"><div class=\"mdl-cell mdl-cell--4-col\"></div><div class=\"mdl-cell mdl-cell--4-col\">{{previousButton}}<a style=\"float:right;\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" href='/style.html?id={{styleId}}&pageId={{page}}'>Next Page</a></div><div class=\"mdl-cell mdl-cell--4-col\"></div>";
+    var pagingHtml = "<div class=\"mdl-grid\"><div class=\"mdl-cell mdl-cell--4-col\"></div><div class=\"mdl-cell mdl-cell--4-col\">{{previousButton}}<a style=\"float:right;\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" href='./style.html?id={{styleId}}&pageId={{page}}'>Next Page</a></div><div class=\"mdl-cell mdl-cell--4-col\"></div>";
 
     var page = currentPage + 1;
     pagingHtml = pagingHtml.replace('{{styleId}}', styleId);
@@ -58,7 +58,7 @@ function createPaging(numberOfPages, currentPage, styleId)
 
   // Do we need a back button?
   if ((numberOfPages > 1) && currentPage > 1){
-    result = result.replace('{{previousButton}}', "<a style=\"float:left;\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" href='/style.html?id={{styleId}}&pageId={{previousPage}}'>Previous Page</a><div></div>");
+    result = result.replace('{{previousButton}}', "<a style=\"float:left;\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent\" href='./style.html?id={{styleId}}&pageId={{previousPage}}'>Previous Page</a><div></div>");
 
     var previousPage = currentPage - 1;
     result = result.replace('{{styleId}}', styleId);
@@ -114,7 +114,7 @@ fetch('./data/styles.json')
         if (!beerDescription){ beerDescription = ""; } // Check if we have a value
         cardDetails = cardDetails.replace('{{beerdescription}}', beerDescription);
 
-        cardDetails = cardDetails.replace('{{beerlink}}', "/beer.html?id=" + i + "&styleId=" + styleId+ "&pageId=" + pageId);
+        cardDetails = cardDetails.replace('{{beerlink}}', "./beer.html?id=" + i + "&styleId=" + styleId+ "&pageId=" + pageId);
 
         // Display the label if we have one
         if (beer.labels)
@@ -122,7 +122,7 @@ fetch('./data/styles.json')
           cardDetails = cardDetails.replace('{{beerimage}}', "background: url('" + beer.labels.large + "') center / cover; height:300px;");
         }
         else{
-          cardDetails = cardDetails.replace('{{beerimage}}', "background: url('/images/srm/light.jpg') center / cover; height:300px;");
+          cardDetails = cardDetails.replace('{{beerimage}}', "background: url('./images/srm/light.jpg') center / cover; height:300px;");
         }
 
         // We want to keep a responsive grid in place
