@@ -143,9 +143,9 @@ fetch('./data/styles.json')
     // Add paging if necessary
     result += createPaging(body.numberOfPages, body.currentPage, styleId);
 
-    document.getElementById("main").innerHTML = result;
-
     // Show offline
     setTimeout(showOfflineNotification, 2000);
+
+    document.getElementById("main").innerHTML = result;
   });
 });
