@@ -30,6 +30,16 @@ function createStyleUrl(styleId, pageId)
   return styleUrl;
 }
 
+// If service workers are supported we are offline
+function showOfflineNotification(){
+  // Check if SW is supported
+  if ('serviceWorker' in navigator) {
+    var snackbarContainer = document.querySelector('#offline-notification');
+    var data = {message: 'This page is now available offline'};
+    snackbarContainer.MaterialSnackbar.showSnackbar(data);
+  }
+}
+
 function createPaging(numberOfPages, currentPage, styleId)
 {
   var result = "";
@@ -134,5 +144,8 @@ fetch('./data/styles.json')
     result += createPaging(body.numberOfPages, body.currentPage, styleId);
 
     document.getElementById("main").innerHTML = result;
+
+    // Show offline
+    setTimeout(showOfflineNotification, 2000);
   });
 });

@@ -47,9 +47,12 @@ function createStyleUrl(styleId, pageId)
 
 // If service workers are supported we are offline
 function showOfflineNotification(){
-  var snackbarContainer = document.querySelector('#offline-notification');
-  var data = {message: 'This page is now available offline'};
-  snackbarContainer.MaterialSnackbar.showSnackbar(data);
+  // Check if SW is supported
+  if ('serviceWorker' in navigator) {
+    var snackbarContainer = document.querySelector('#offline-notification');
+    var data = {message: 'This page is now available offline'};
+    snackbarContainer.MaterialSnackbar.showSnackbar(data);
+  }
 }
 
 var styleId = getParameterByName('styleId');

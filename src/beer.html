@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Progressive Beer</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="./css/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="./css/material.min.css">
     <link href='https://fonts.googleapis.com/css?family=Gabriela|Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./css/site.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -94,9 +94,9 @@
     </div>
     <!-- scripts -->
     <script src="./js/fetch.js"></script>
-    <script src="./js/material.min.js"></script>
-    <script src="./js/beer.js"></script>
-    <!-- <script>
+    <script defer src="./js/material.min.js"></script>
+    <script async src="./js/beer.js"></script>
+    <script>
       // Register the service worker
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./service-worker.js').then(function(registration) {
@@ -107,6 +107,6 @@
             console.log('ServiceWorker registration failed: ', err);
           });
       }
-    </script> -->
+    </script>
   </body>
 </html>

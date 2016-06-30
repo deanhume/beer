@@ -181,6 +181,26 @@
 
     /* Tablet */
     @media only screen and (min-width: 768px) and (max-width: 1024px) {
+      .header-background {
+         background: url('/images/beer-mobile.jpg') center / cover;
+         height: 400px;
+       }
+
+       .header-background-style {
+         background: url('/images/styles-mobile.jpg') center / cover;
+             height: 400px;
+       }
+
+       .header-background-beer {
+         background: url('/images/beer-page-mobile.jpg') center / cover;
+         height: 400px;
+       }
+
+       .header-background-about {
+         background: url('/images/about-mobile.jpg') center / cover;
+         height: 400px;
+       }
+
       .hide_tablet{
         display: none!important;
       }
@@ -257,6 +277,26 @@
 
     /* Mobile */
     @media only screen and (min-width: 280px) and (max-width: 767px) {
+      .header-background {
+         background: url('/images/beer-mobile.jpg') center / cover;
+         height: 400px;
+       }
+
+       .header-background-style {
+         background: url('/images/styles-mobile.jpg') center / cover;
+             height: 400px;
+       }
+
+       .header-background-beer {
+         background: url('/images/beer-page-mobile.jpg') center / cover;
+         height: 400px;
+       }
+
+       .header-background-about {
+         background: url('/images/about-mobile.jpg') center / cover;
+         height: 400px;
+       }
+
         .hide_mobile{
           display: none!important;
         }
