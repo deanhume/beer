@@ -2,17 +2,16 @@
   'use strict';
 
   // Load the sw-toolbox library.
-  importScripts('bower_components/sw-toolbox/sw-toolbox.js');
+  importScripts('./bower_components/sw-toolbox/sw-toolbox.js');
 
   // Turn on debug logging, visible in the Developer Tools' console.
   global.toolbox.options.debug = false;
 
   // We want to precache the following items
-  toolbox.precache([ '/index.html',
-                     '/about.html',
-                     '/style.html',
-                     '/beer.html',
-                     '/']);
+  toolbox.precache([ './index.html',
+                     './about.html',
+                     './style.html',
+                     './beer.html']);
 
   // The route for any requests from the googleapis origin
   toolbox.router.get('/(.*)', global.toolbox.cacheFirst, {
