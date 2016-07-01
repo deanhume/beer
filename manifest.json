@@ -4,7 +4,8 @@
   "lang": "en-US",
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#ffe3ff",
+  "theme_color": "#ffe400",
+  "background_color": "#ffe400",
   "icons": [
     {
       "src": "./images/beer-icon-192.png",
