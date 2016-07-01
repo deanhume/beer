@@ -82,6 +82,9 @@ fetch(styleUrl)
     var beerDescription = htmlDocument.getElementById('beer-description');
     beerDescription.innerHTML = cleanUnknownText(beer.description);
 
+    // Update the page title
+    document.title = "Progressive Beer - " + beer.style.shortName;
+
     // Update the beer image
     if (beer.labels)
     {

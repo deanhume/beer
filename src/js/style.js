@@ -90,6 +90,9 @@ fetch('./data/styles.json')
   var styleHeroDescription = document.getElementById('styleDescription');
   styleHeroDescription.innerHTML += style.description;
 
+  // Update the page title
+  document.title = "Progressive Beer - " + style.name;
+
   // Get the url of our beer styles
   var styleUrl = createStyleUrl(styleId, pageId);
 
