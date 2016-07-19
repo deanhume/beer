@@ -101,6 +101,14 @@
       font-family: 'Gabriela', serif;
     }
 
+    .about_text{
+      font-size: 20px;
+      text-align: center;
+      line-height: 40px;
+      padding-bottom: 30px;
+      width: 700px;
+    }
+
     .map_image {
        position: relative;
        width: 100%;
@@ -277,6 +285,15 @@
 
     /* Mobile */
     @media only screen and (min-width: 280px) and (max-width: 767px) {
+
+      .about_text{
+        font-size: 18px;
+        text-align: center;
+        line-height: 40px;
+        padding-bottom: 30px;
+        width: 300px;
+      }
+
       .header-background {
          background: url('https://deanhume.github.io/beer/images/beer-mobile.jpg') center / cover;
          height: 400px;
