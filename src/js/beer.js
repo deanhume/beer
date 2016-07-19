@@ -45,19 +45,27 @@ function createStyleUrl(styleId, pageId)
   return styleUrl;
 }
 
+var styleId = getParameterByName('styleId');
+var pageId = getParameterByName('pageId');
+var beerId = getParameterByName('id');
+
 // If service workers are supported we are offline
 function showOfflineNotification(){
   // Check if SW is supported
   if ('serviceWorker' in navigator) {
-    var snackbarContainer = document.querySelector('#offline-notification');
-    var data = {message: 'This page is now available offline'};
-    snackbarContainer.MaterialSnackbar.showSnackbar(data);
+
+    // Check if we have already displayed message
+    var key = 'beer-' + styleId + '-' + pageId + '-' + beerId;
+    if (localStorage.getItem(key) === null){
+      var snackbarContainer = document.querySelector('#offline-notification');
+      var data = {message: 'This page is now available offline'};
+      snackbarContainer.MaterialSnackbar.showSnackbar(data);
+
+      // Save the message into storage
+      localStorage.setItem(key, true);
+    }
   }
 }
-
-var styleId = getParameterByName('styleId');
-var pageId = getParameterByName('pageId');
-var beerId = getParameterByName('id');
 
 var styleUrl = createStyleUrl(styleId, pageId);
 

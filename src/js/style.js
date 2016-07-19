@@ -30,13 +30,24 @@ function createStyleUrl(styleId, pageId)
   return styleUrl;
 }
 
+var styleId = getParameterByName('id');
+var pageId = getParameterByName('pageId');
+
 // If service workers are supported we are offline
 function showOfflineNotification(){
   // Check if SW is supported
   if ('serviceWorker' in navigator) {
-    var snackbarContainer = document.querySelector('#offline-notification');
-    var data = {message: 'This page is now available offline'};
-    snackbarContainer.MaterialSnackbar.showSnackbar(data);
+
+    // Check if we have already displayed message
+    var key = 'style-' + styleId + '-' + pageId;
+    if (localStorage.getItem(key) === null){
+      var snackbarContainer = document.querySelector('#offline-notification');
+      var data = {message: 'This page is now available offline'};
+      snackbarContainer.MaterialSnackbar.showSnackbar(data);
+
+      // Save the message into storage
+      localStorage.setItem(key, true);
+    }
   }
 }
 
@@ -77,8 +88,6 @@ fetch('./data/styles.json')
   return response.json();
 }).then(function(body) {
 
-  var styleId = getParameterByName('id');
-  var pageId = getParameterByName('pageId');
   var style = body.data[styleId];
   var result = '<div class="mdl-layout__header-row learn_title available_beers"><div class="mdl-grid">Available Beers</div></div>';
 
@@ -110,7 +119,7 @@ fetch('./data/styles.json')
       // We only want verified beers
       if(beer.status == 'verified' && beer)
       {
-        var cardDetails = '<div class="mdl-cell mdl-cell--4-col"><div class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand" style="{{beerimage}}"><h2 class="mdl-card__title-text">{{beername}}</h2></div><div class="mdl-card__supporting-text truncate">{{beerdescription}}</div><div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{beerlink}}">Find out more</a></div></div></div>';
+        var cardDetails = '<div class="mdl-cell mdl-cell--4-col"><div class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand" style="{{beerimage}}"><h2 class="mdl-card__title-text">{{beername}}</h2></div><div class="mdl-card__supporting-text truncate">{{beerdescription}}</div><div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{beerlink}}">Learn more</a></div></div></div>';
         cardDetails = cardDetails.replace('{{beername}}', beer.name);
 
         var beerDescription = beer.description;
