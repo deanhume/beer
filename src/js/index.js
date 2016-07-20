@@ -63,7 +63,8 @@ fetch('./data/styles.json')
     }
 
   // Paint the page
-  document.getElementById("main").innerHTML = result;
+  document.getElementById("main").innerHTML = result + document.getElementById("main").innerHTML;
+  document.getElementById("loading-button").style.display = 'none';
 
   // Show offline
   setTimeout(showOfflineNotification, 2000);
