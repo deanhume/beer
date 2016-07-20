@@ -97,6 +97,9 @@
       padding-top:100px;
       padding-bottom: 50px;
       font-family: 'Gabriela', serif;
+      display: inline-block;
+      text-align: center;
+      width: 950px;
     }
 
     .about_text{
@@ -334,10 +337,12 @@
         }
 
         .learn_title {
-            font-size: 40px;
-            padding-bottom: 50px;
-            font-family: 'Gabriela', serif;
-            padding-left: 0px;
+          width: 550px;
+          font-size: 40px;
+          padding-bottom: 50px;
+          font-family: 'Gabriela', serif;
+          display: inline-block;
+          text-align: center;
         }
 
         .learn_intro {
