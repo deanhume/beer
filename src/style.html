@@ -58,35 +58,36 @@
             <a class="mdl-navigation__link" href="./about.html">About</a>
           </nav>
       </div>
-      <!-- intro -->
-      <div class="mdl-layout__header-row learn_title hero_title"><div class="mdl-grid">This Beer's Style</div></div>
-      <div class="mdl-layout__header-row text_margin hero_title" style="margin-bottom: 400px;"><div class="mdl-grid learn_intro_style" id="styleDescription"></div></div>
       <!-- main div -->
-      <main class="mdl-layout__content main_content beer_content" id="main">
+      <main class="mdl-layout__content main_content beer_content">
+        <!-- intro -->
+        <div class="mdl-grid learn_title">This Beer's Style</div>
+        <div class="mdl-grid learn_intro" id="styleDescription"></div>
         <!-- loading button -->
         <div class="mdl-grid" style="padding-top: 120px;" id="loading-button">
           <div class="mdl-cell mdl-cell--6-col"></div>
           <div class="mdl-cell mdl-cell--1-col"><div class="mdl-spinner mdl-js-spinner is-active"></div></div>
           <div class="mdl-cell mdl-cell--5-col"></div>
         </div>
-      </main>
-      <!-- footer -->
-      <footer class="mdl-mega-footer">
-        <div class="mdl-mega-footer__middle-section">
-          <div class="mdl-mega-footer__drop-down-section">
-            <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
-            <h1 class="mdl-mega-footer__heading">More Resources</h1>
-            <ul class="mdl-mega-footer__link-list">
-              <li>All data supplied by <a href="http://www.brewerydb.com/">BreweryDB</a></li>
-              <li><a href="./">Home</a></li>
-              <li><a href="./about.html">About</a></li>
-            </ul>
+        <div id="main"></div>
+        <!-- footer -->
+        <footer class="mdl-mega-footer">
+          <div class="mdl-mega-footer__middle-section">
+            <div class="mdl-mega-footer__drop-down-section">
+              <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer__heading">More Resources</h1>
+              <ul class="mdl-mega-footer__link-list">
+                <li>All data supplied by <a href="http://www.brewerydb.com/">BreweryDB</a></li>
+                <li><a href="./">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="mdl-mega-footer__bottom-section">
-          Made with ❤ by <a href="http://deanhume.com">DEAN HUME</a>
-        </div>
-    </footer>
+          <div class="mdl-mega-footer__bottom-section">
+            Made with ❤ by <a href="http://deanhume.com">DEAN HUME</a>
+          </div>
+      </footer>
+      </main>
     </div>
     <!-- toast notification -->
     <div id="offline-notification" class="mdl-js-snackbar mdl-snackbar">

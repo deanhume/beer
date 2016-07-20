@@ -89,7 +89,7 @@ fetch('./data/styles.json')
 }).then(function(body) {
 
   var style = body.data[styleId];
-  var result = '<div class="mdl-layout__header-row learn_title available_beers"><div class="mdl-grid">Available Beers</div></div>';
+  var result = '<div class="mdl-grid learn_title">Available Beers</div>';
 
   // Append the style name in the hero image
   var styleHeroElement = document.getElementById('styleName');
@@ -159,5 +159,6 @@ fetch('./data/styles.json')
     setTimeout(showOfflineNotification, 2000);
 
     document.getElementById("main").innerHTML = result;
+    document.getElementById("loading-button").style.display = 'none';
   });
 });

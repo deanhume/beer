@@ -82,11 +82,9 @@
 
     .learn_intro{
       font-size: 20px;
-      padding-bottom: 180px;
       width: 80%;
       text-align: center;
       line-height: 40px;
-      margin-top: 250px;
     }
 
     .learn_intro_style{
@@ -220,11 +218,9 @@
 
       .learn_intro {
           font-size: 20px;
-          padding-bottom: 180px;
           width: 80%;
           text-align: center;
           line-height: 40px;
-          margin-top: 320px;
       }
 
       .beer_content{
@@ -346,12 +342,9 @@
 
         .learn_intro {
             font-size: 20px;
-            /* padding-bottom: 180px; */
             width: 80%;
             text-align: center;
             line-height: 40px;
-            margin-top: 650px;
-            margin-left: 0px;
         }
 
         .style_name {
