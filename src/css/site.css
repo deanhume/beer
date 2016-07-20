@@ -23,6 +23,16 @@
       color: white;
     }
 
+    .beer_text{
+      margin: auto;
+      color: white;
+      font-family: 'Gabriela', serif;
+      font-size: 40px;
+      width: 80%;
+      text-align: center;
+      line-height: 40px;
+    }
+
     .demo-card-square.mdl-card {
       width: 320px;
       height: 320px;
@@ -186,8 +196,9 @@
     }
 
     .beer_map{
-      height:300px;
-      width: 100%;
+      background-image: url('https://deanhume.github.io/beer/images/beer-map.png');
+      height: 300px;
+      background-size: cover;
     }
 
     /* Desktop */
@@ -224,8 +235,9 @@
       }
 
       .beer_map{
-        height:200px;
-        width: 100%;
+        background-image: url('https://deanhume.github.io/beer/images/beer-map.png');
+        height: 200px;
+        background-size: cover;
       }
 
       .demo-card-square.mdl-card {
@@ -305,8 +317,9 @@
       }
 
       .beer_map{
-        height:100px;
-        width: 100%;
+        background-image: url('https://deanhume.github.io/beer/images/beer-map.png');
+        height: 200px;
+        background-size: cover;
       }
 
       .about_text{
