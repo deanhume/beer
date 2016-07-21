@@ -55,7 +55,6 @@
 
     .main_content{
       margin: 0 auto;
-      margin-top: 100px;
     }
 
     .grid_border{
@@ -286,7 +285,6 @@
 
       .main_content {
           margin: 0 auto;
-          margin-top: 300px;
       }
 
       .style_name {
@@ -336,6 +334,13 @@
 
     /* Phablets */
     @media only screen and (min-width: 580px) and (max-width: 767px) {
+
+      .demo-card-square.mdl-card {
+          width: 150px;
+          height: 220px;
+      }
+
+
       .style_hero_text {
           width: inherit;
       }
@@ -470,7 +475,6 @@
 
         .main_content {
           margin: 0 auto;
-          margin-top: 550px;
       }
 
        .beer_content{
@@ -547,7 +551,7 @@
         }
 
         .learn_title {
-          width: 100%;
+          width: 90%;
           font-size: 40px;
           padding-bottom: 50px;
           font-family: 'Gabriela', serif;
@@ -621,7 +625,6 @@
 
         .main_content {
           margin: 0 auto;
-          margin-top: 550px;
       }
 
        .beer_content{
