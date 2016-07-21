@@ -59,40 +59,49 @@
           <a class="mdl-navigation__link" href="./about.html">About</a>
         </nav>
       </div>
-      <!-- intro -->
-      <div class="mdl-layout__header-row learn_title"><div class="mdl-grid">Learn</div></div>
-      <div class="mdl-layout__header-row"><div class="mdl-grid learn_intro">There are so many great beers around the world. Sometimes it can be hard to keep track of all the different kinds! Progressive Beer is a handy web app that is designed to help you learn everything there is to know about beers! Learn more about each beer style by selecing one from the list below.</div></div>
       <!-- main div -->
-      <main class="mdl-layout__content main_content" id="main">
+      <main class="mdl-layout__content">
         <!-- loading button -->
         <div class="mdl-grid" style="padding-top: 120px;" id="loading-button">
           <div class="mdl-cell mdl-cell--6-col"></div>
           <div class="mdl-cell mdl-cell--1-col"><div class="mdl-spinner mdl-js-spinner is-active"></div></div>
           <div class="mdl-cell mdl-cell--5-col"></div>
         </div>
-      </main>
-      <!-- map image -->
-      <div class="map_image">
-      <img src="./images/beer-map.png" style="width: 100%;" alt="Beer from around the world" />
-      <div class="image_text">Beer from all around the world!</div>
-      </div>
-      <!-- footer -->
-      <footer class="mdl-mega-footer">
-        <div class="mdl-mega-footer__middle-section">
-          <div class="mdl-mega-footer__drop-down-section">
-            <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
-            <h1 class="mdl-mega-footer__heading">More Resources</h1>
-            <ul class="mdl-mega-footer__link-list">
-              <li>All data supplied by <a href="http://www.brewerydb.com/">BreweryDB</a></li>
-              <li><a href="./">Home</a></li>
-              <li><a href="./about.html">About</a></li>
-            </ul>
+        <!-- Explore -->
+        <div class="mdl-grid learn_title">Explore</div>
+        <div class="mdl-grid learn_intro">There are so many great beers around the world. Sometimes it can be hard to keep track of all the different kinds! Progressive Beer is a handy web app that is designed to help you learn everything there is to know about beers! Explore the many beer styles in list below for more information.</div>
+        <!-- Search Box -->
+        <div id="styles">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="margin: auto;margin-top: 30px;">
+            <input class="search mdl-textfield__input" list="styleList" type="text" id="search">
+            <label class="mdl-textfield__label" for="search">Filter beer styles...
+            <i class="material-icons">search</i></label>
           </div>
+          <!-- Main -->
+          <div id="main" class="list grid_padding"></div>
         </div>
-        <div class="mdl-mega-footer__bottom-section">
-          Made with ❤ by <a href="http://deanhume.com">DEAN HUME</a>
+        <!-- map image -->
+        <div class="mdl-grid beer_map">
+          <div class="beer_text">Beer from around the world!</div>
         </div>
-    </footer>
+        <!-- footer -->
+        <footer class="mdl-mega-footer">
+          <div class="mdl-mega-footer__middle-section">
+            <div class="mdl-mega-footer__drop-down-section">
+              <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+              <h1 class="mdl-mega-footer__heading">More Resources</h1>
+              <ul class="mdl-mega-footer__link-list">
+                <li>All data supplied by <a href="http://www.brewerydb.com/">BreweryDB</a></li>
+                <li><a href="./">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mdl-mega-footer__bottom-section">
+            Made with ❤ by <a href="http://deanhume.com">DEAN HUME</a>
+          </div>
+      </footer>
+      </main>
     </div>
     <!-- toast notification -->
     <div id="offline-notification" class="mdl-js-snackbar mdl-snackbar">

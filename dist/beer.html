@@ -37,7 +37,10 @@
       <header class="mdl-layout__header mdl-layout__header--transparent header-background-beer">
         <div class="mdl-layout__header-row" style="border-bottom: .1rem solid hsla(0,0%,100%,.3);">
           <!-- Title -->
-          <span class="mdl-layout-title"><a href="./index.html">Progressive Beer</a></span>
+          <span class="mdl-layout-title title_width">
+            <a class="hide_mobile" href="./">Progressive Beer</a>
+            <img src="./images/beer-icon.svg" class="hide_desktop hide_tablet beer_icon">
+          </span>
           <!-- Add spacer, to align navigation to the right -->
           <div class="mdl-layout-spacer"></div>
           <!-- Navigation -->
@@ -50,7 +53,7 @@
         <div id="tagline" class="mdl-layout__header-row text_margin hero_title"></div>
       </header>
       <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title"><a href="./index.html">Progressive Beer</a></span>
+        <span class="mdl-layout-title"><a id="drawer" href="./index.html">Progressive Beer</a></span>
         <nav class="mdl-navigation">
           <a class="mdl-navigation__link" href="./index.html">Home</a>
           <a class="mdl-navigation__link" href="./about.html">About</a>
@@ -88,24 +91,24 @@
               </a>
             </div>
             </div>
+            <!-- footer -->
+            <footer class="mdl-mega-footer">
+              <div class="mdl-mega-footer__middle-section">
+                <div class="mdl-mega-footer__drop-down-section">
+                  <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+                  <h1 class="mdl-mega-footer__heading">More Resources</h1>
+                  <ul class="mdl-mega-footer__link-list">
+                    <li>All data supplied by <a href="http://www.brewerydb.com/">BreweryDB</a></li>
+                    <li><a href="./">Home</a></li>
+                    <li><a href="./about.html">About</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mdl-mega-footer__bottom-section">
+                Made with ❤ by <a href="http://deanhume.com">DEAN HUME</a>
+              </div>
+          </footer>
       </main>
-      <!-- footer -->
-      <footer class="mdl-mega-footer">
-        <div class="mdl-mega-footer__middle-section">
-          <div class="mdl-mega-footer__drop-down-section">
-            <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
-            <h1 class="mdl-mega-footer__heading">More Resources</h1>
-            <ul class="mdl-mega-footer__link-list">
-              <li>All data supplied by <a href="http://www.brewerydb.com/">BreweryDB</a></li>
-              <li><a href="./">Home</a></li>
-              <li><a href="./about.html">About</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="mdl-mega-footer__bottom-section">
-          Made with ❤ by <a href="http://deanhume.com">DEAN HUME</a>
-        </div>
-    </footer>
     </div>
     <!-- toast notification -->
     <div id="offline-notification" class="mdl-js-snackbar mdl-snackbar">

@@ -24,7 +24,7 @@ module.exports = function(grunt) {
 		uglify: {
         dist: {
             files: [
-                { src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/index.js'], dest: 'dist/js/index.min.js' },
+                { src: ['src/js/material.min.js', 'src/js/fetch.js', './js/list.min.js', 'src/js/index.js'], dest: 'dist/js/index.min.js' },
                 { src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/beer.js'], dest: 'dist/js/beer.min.js' },
                 { src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/style.js'], dest: 'dist/js/style.min.js' },
 								{ src: ['src/js/material.min.js'], dest: 'dist/js/about.min.js' }
