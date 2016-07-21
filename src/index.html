@@ -70,12 +70,19 @@
           <div class="mdl-cell mdl-cell--1-col"><div class="mdl-spinner mdl-js-spinner is-active"></div></div>
           <div class="mdl-cell mdl-cell--5-col"></div>
         </div>
-        <!-- intro -->
-        <div class="mdl-grid learn_title">Learn</div>
-        <div class="mdl-grid learn_intro">There are so many great beers around the world. Sometimes it can be hard to keep track of all the different kinds! Progressive Beer is a handy web app that is designed to help you learn everything there is to know about beers! Learn more about each beer style by selecing one from the list below.</div>
+        <!-- Explore -->
         <div class="mdl-grid learn_title">Explore</div>
-        <div class="mdl-grid learn_intro">There are so many great beers around the world. Sometimes it can be hard to keep track of all the different kinds! Progressive Beer is a handy web app that is designed to help you learn everything there is to know about beers! Learn more about each beer style by selecing one from the list below.</div>
-        <div id="main" class="grid_padding"></div>
+        <div class="mdl-grid learn_intro">There are so many great beers around the world. Sometimes it can be hard to keep track of all the different kinds! Progressive Beer is a handy web app that is designed to help you learn everything there is to know about beers! Explore the many beer styles in list below for more information.</div>
+        <!-- Search Box -->
+        <div id="styles">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="margin: auto;margin-top: 30px;">
+            <input class="search mdl-textfield__input" list="styleList" type="text" id="search">
+            <label class="mdl-textfield__label" for="search">Filter beer styles...
+            <i class="material-icons">search</i></label>
+          </div>
+          <!-- Main -->
+          <div id="main" class="list grid_padding"></div>
+        </div>
         <!-- map image -->
         <div class="mdl-grid beer_map">
           <div class="beer_text">Beer from around the world!</div>
@@ -107,6 +114,7 @@
     <!-- scripts -->
     <!-- build:js ./js/index.min.js -->
     <script src="./js/fetch.js"></script>
+    <script src="./js/list.min.js"></script>
     <script async src="./js/index.js"></script>
     <script defer src="./js/material.min.js"></script>
     <!-- /build -->
