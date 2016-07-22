@@ -5,7 +5,10 @@
     <title>Progressive Beer</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href='https://fonts.googleapis.com/css?family=Gabriela|Open+Sans' rel='stylesheet' type='text/css'>
-    <!-- build:css ./css/result.min.css -->
+    <!-- build:template
+    <link rel="stylesheet" href="./css/result-<%= message %>.min.css">
+    /build -->
+    <!-- build:remove -->
     <link rel="stylesheet" href="./css/material.min.css">
     <link rel="stylesheet" href="./css/site.css">
     <!-- /build -->
@@ -112,12 +115,15 @@
       <button class="mdl-snackbar__action" type="button"></button>
     </div>
     <!-- scripts -->
-    <!-- build:js ./js/index.min.js -->
-    <script src="./js/fetch.js"></script>
     <script src="./js/list.min.js"></script>
+    <!-- build:remove -->
+    <script src="./js/fetch.js"></script>
     <script async src="./js/index.js"></script>
     <script defer src="./js/material.min.js"></script>
     <!-- /build -->
+    <!-- build:template
+    <script src="./js/index-<%= message %>.min.js"></script>
+    /build -->
     <script>
       // Register the service worker
       if ('serviceWorker' in navigator) {

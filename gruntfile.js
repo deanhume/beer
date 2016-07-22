@@ -1,15 +1,22 @@
 module.exports = function(grunt) {
 
+	var uid = (new Date().getTime()).toString(36);
+
 	grunt.initConfig({
 		// Minify the CSS
 		cssmin: {
 			target: {
 				files: [{
-					src: ['src/css/material.min.css', 'src/css/site.css'], dest: 'dist/css/result.min.css' }
+					src: ['src/css/material.min.css', 'src/css/site.css'], dest: 'dist/css/result-' + uid + '.min.css' }
 				]}
 		},
 		// Rewrite the minifed stuff into the processed HTML file
 		processhtml: {
+			options: {
+				 data: {
+					 message: uid
+				 }
+	 		},
 			dist: {
 				files: [{
 					expand: true,
@@ -24,10 +31,10 @@ module.exports = function(grunt) {
 		uglify: {
         dist: {
             files: [
-                { src: ['src/js/material.min.js', 'src/js/fetch.js', './js/list.min.js', 'src/js/index.js'], dest: 'dist/js/index.min.js' },
-                { src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/beer.js'], dest: 'dist/js/beer.min.js' },
-                { src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/style.js'], dest: 'dist/js/style.min.js' },
-								{ src: ['src/js/material.min.js'], dest: 'dist/js/about.min.js' }
+                { src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/index.js'], dest: 'dist/js/index-' + uid + '.min.js' },
+                { src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/beer.js'], dest: 'dist/js/beer-' + uid + '.min.js' },
+                { src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/style.js'], dest: 'dist/js/style-' + uid + '.min.js' },
+								{ src: ['src/js/material.min.js'], dest: 'dist/js/about-' + uid + '.min.js' }
             ]
         }
     },
@@ -43,21 +50,28 @@ module.exports = function(grunt) {
 			imagesSrm: {
 				expand: true,
 				flatten: true,
-				 filter: 'isFile',
+				filter: 'isFile',
 				src: 'src/images/srm/*',
 				dest: 'dist/images/srm',
 			},
 			rootFiles: {
 				expand: true,
 				flatten: true,
-				 filter: 'isFile',
+				filter: 'isFile',
 				src: 'src/*.js',
 				dest: 'dist/',
+			},
+			importantJsFiles: {
+				expand: false,
+				flatten: true,
+				filter: 'isFile',
+				src: 'src/js/list.min.js',
+				dest: 'dist/js/list.min.js',
 			},
 			data: {
 				expand: true,
 				flatten: true,
-				 filter: 'isFile',
+				filter: 'isFile',
 				src: 'src/data/*',
 				dest: 'dist/data/',
 			},
