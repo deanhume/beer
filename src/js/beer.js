@@ -51,7 +51,7 @@ var beerId = getParameterByName('id');
 
 // If service workers are supported we are offline
 function showOfflineNotification(){
-  // Check if SW is supported
+  // Check if SW is supported and assume that we saved it
   if ('serviceWorker' in navigator) {
 
     // Check if we have already displayed message

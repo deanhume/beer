@@ -91,13 +91,18 @@
 
     .learn_intro{
       font-size: 20px;
-      width: 80%;
-      text-align: center;
+      width: 90%;
+      text-align: justify;
       line-height: 40px;
     }
 
     .learn_intro_style{
-        font-size: 20px;padding-bottom: 180px;width: 80%;text-align: center;line-height: 40px;margin-top: 250px;
+        font-size: 20px;
+        padding-bottom: 180px;
+        width: 90%;
+        text-align: justify;
+        line-height: 40px;
+        margin-top: 250px;
         padding-top: 300px;
     }
 
@@ -113,7 +118,7 @@
 
     .about_text{
       font-size: 20px;
-      text-align: center;
+      text-align: justify;
       line-height: 40px;
       padding-bottom: 30px;
       width: 700px;
@@ -270,8 +275,8 @@
 
       .learn_intro {
           font-size: 20px;
-          width: 80%;
-          text-align: center;
+          width: 90%;
+          text-align: justify;
           line-height: 40px;
       }
 
@@ -364,7 +369,7 @@
 
       .about_text{
         font-size: 18px;
-        text-align: center;
+        text-align: justify;
         line-height: 40px;
         padding-bottom: 30px;
         width: 300px;
@@ -424,8 +429,8 @@
 
         .learn_intro {
             font-size: 20px;
-            width: 80%;
-            text-align: center;
+            width: 90%;
+            text-align: justify;
             line-height: 40px;
         }
 
@@ -487,10 +492,11 @@
       }
     }
 
-    /* Mobile */
-    @media only screen and (min-width: 280px) and (max-width: 579px) {
-      .grid_padding{
-        padding-left: 10%;
+    /* Small Mobile Screens */
+    @media only screen and (min-width: 280px) and (max-width: 380px) {
+      .demo-card-square.mdl-card {
+          width: 280px;
+          height: 220px;
       }
 
       .beer_map{
@@ -501,7 +507,7 @@
 
       .about_text{
         font-size: 18px;
-        text-align: center;
+        text-align: justify;
         line-height: 40px;
         padding-bottom: 30px;
         width: 300px;
@@ -561,8 +567,8 @@
 
         .learn_intro {
             font-size: 20px;
-            width: 80%;
-            text-align: center;
+            width: 90%;
+            text-align: justify;
             line-height: 40px;
         }
 
@@ -571,6 +577,164 @@
             font-size: 50px;
             letter-spacing: -7px;
             font-family: 'Gabriela', serif;
+            width: 90%;
+            text-align: center;
+            line-height: 40px;
+            padding-left: 50px;
+        }
+
+        .styleTagline {
+            font-size: 15px;
+            font-style: italic;
+            width: 180px;
+            text-align: center;
+            margin-top: 18px;
+        }
+
+        .mdl-layout__header-row .mdl-navigation__link{
+          display: none;
+        }
+
+        .text_margin{
+          margin-top: 25%;
+        }
+
+        .hero_title{
+          padding-left: 0px;
+        }
+
+        .learn_intro_style {
+            font-size: 20px;
+            padding-bottom: 180px;
+            width: 80%;
+            text-align: center;
+            line-height: 40px;
+            margin-top: 1000px;
+            padding-top: 400px;
+        }
+
+        .available_beers{
+          margin-top: 890px;
+        }
+
+        .style_hero_text{
+          text-align: center;
+          line-height: 54px;
+          width: 80%;
+        }
+
+        .beer_map_image{
+          position: relative;
+          width: 100%;
+          margin-top: 400px;
+        }
+
+        .footer_margin{
+          margin-bottom: 130%;
+        }
+
+        .main_content {
+          margin: 0 auto;
+      }
+
+       .beer_content{
+          margin-top: 0px;
+        }
+
+      .mdl-card i {
+          font-size: 40px;
+          padding-top: 30px;
+      }
+    }
+
+    /* Mobile */
+    @media only screen and (min-width: 381px) and (max-width: 579px) {
+      .grid_padding{
+        padding-left: 10%;
+      }
+
+      .beer_map{
+        background-image: url('https://deanhume.github.io/beer/images/beer-map.png');
+        height: 200px;
+        background-size: cover;
+      }
+
+      .about_text{
+        font-size: 18px;
+        text-align: justify;
+        line-height: 40px;
+        padding-bottom: 30px;
+        width: 300px;
+      }
+
+      .header-background {
+         background: url('https://deanhume.github.io/beer/images/beer-mobile.jpg') center / cover;
+         height: 400px;
+       }
+
+       .header-background-style {
+         background: url('https://deanhume.github.io/beer/images/styles-mobile.jpg') center / cover;
+             height: 400px;
+       }
+
+       .header-background-beer {
+         background: url('https://deanhume.github.io/beer/images/beer-page-mobile.jpg') center / cover;
+         height: 400px;
+       }
+
+       .header-background-about {
+         background: url('https://deanhume.github.io/beer/images/about-mobile.jpg') center / cover;
+         height: 400px;
+       }
+
+        .hide_mobile{
+          display: none!important;
+        }
+
+        .about-footer{
+          margin-top: 20px;
+        }
+
+        .tagline-padding{
+          padding-left: 100px;
+        }
+
+        .image_text {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            font-family: 'Gabriela', serif;
+            font-size: 26px;
+            line-height: 40px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .learn_title {
+          width: 90%;
+          font-size: 40px;
+          padding-bottom: 50px;
+          font-family: 'Gabriela', serif;
+          display: inline-block;
+          text-align: center;
+        }
+
+        .learn_intro {
+            font-size: 20px;
+            width: 90%;
+            text-align: justify;
+            line-height: 40px;
+        }
+
+        .style_name {
+            margin-top: 55%;
+            font-size: 50px;
+            letter-spacing: -7px;
+            font-family: 'Gabriela', serif;
+            width: 90%;
+            text-align: center;
+            line-height: 40px;
+            padding-left: 80px;
         }
 
         .styleTagline {
