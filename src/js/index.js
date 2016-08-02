@@ -1,17 +1,22 @@
-// If service workers are supported we are offline
-function showOfflineNotification(){
-  // Check if SW is supported
+function showOfflineNotification() {
   if ('serviceWorker' in navigator) {
-    // Check if we have already displayed message
-    var key = 'home';
-    if (localStorage.getItem(key) === null){
-      var snackbarContainer = document.querySelector('#offline-notification');
-      var data = {message: 'This page is now available offline'};
-      snackbarContainer.MaterialSnackbar.showSnackbar(data);
+    // Open the cache and check if we have this page saved
+    caches.open('beer-data').then(function(cache) {
+      var urlToCheck = 'https://deanhume.github.io/beer/data/styles.json';
+        cache.match(urlToCheck)
+        .then(function(response) {
+          if (response == undefined){ return; } // return if we found nothing
+          // We found the resource in cache
+          if (response.ok && localStorage.getItem(urlToCheck) === null) {
+              var snackbarContainer = document.querySelector('#offline-notification');
+              var data = {message: 'This page is now available offline'};
+              snackbarContainer.MaterialSnackbar.showSnackbar(data);
 
-      // Save the message into storage
-      localStorage.setItem(key, true);
-    }
+              // Save the message into storage
+              localStorage.setItem(urlToCheck, true);
+          }
+        });
+    });
   }
 }
 
