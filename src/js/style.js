@@ -17,9 +17,9 @@ function createHeroText(styleName){
 }
 
 // Get the url of the data
-function createStyleUrl(styleId, pageId)
+function createStyleUrl(styleId, pageId, includeRelative)
 {
-  var styleUrl = './data/beers-style-' + styleId;
+  var styleUrl = '/data/beers-style-' + styleId;
   if (pageId > 1){
     styleUrl += '-page-' + pageId + '.json';
   }
@@ -27,7 +27,12 @@ function createStyleUrl(styleId, pageId)
     styleUrl += '-page-' + 1 + '.json';
   }
 
-  return styleUrl;
+  if (includeRelative){
+    return '.' + styleUrl;
+  }
+  else{
+    return styleUrl;
+  }
 }
 
 var styleId = getParameterByName('id');
@@ -37,7 +42,7 @@ function showOfflineNotification() {
   if ('serviceWorker' in navigator) {
     // Open the cache and check if we have this page saved
     caches.open('beer-data').then(function(cache) {
-      var urlToCheck = 'https://deanhume.github.io/beer/data/beers-style-' + styleId + '-page-' + pageId + '.json';
+      var urlToCheck = 'https://deanhume.github.io/beer' + createStyleUrl(styleId, pageId, false);
         cache.match(urlToCheck)
         .then(function(response) {
           if (response == undefined){ return; } // return if we found nothing
@@ -107,7 +112,7 @@ fetch('./data/styles.json')
   document.title = "Progressive Beer - " + style.name;
 
   // Get the url of our beer styles
-  var styleUrl = createStyleUrl(styleId, pageId);
+  var styleUrl = createStyleUrl(styleId, pageId, true);
 
   // Fetch the associated beers
   var innerCardDetails = "";
