@@ -19,13 +19,16 @@ function createHeroText(styleName){
 // Get the url of the data
 function createStyleUrl(styleId, pageId, includeRelative)
 {
-  var styleUrl = '/data/beers-style-' + styleId;
-  if (pageId > 1){
-    styleUrl += '-page-' + pageId + '.json';
-  }
-  else{
-    styleUrl += '-page-' + 1 + '.json';
-  }
+  var styleUrl = '/data/beers-style-';
+
+  // Add the styleId
+  styleUrl += styleId;
+
+  // Add the pageId
+  if (pageId < 1){ pageId = 1; }
+  styleUrl += '-page-' + pageId + '.json';
+
+
 
   if (includeRelative){
     return '.' + styleUrl;
@@ -97,7 +100,7 @@ fetch('./data/styles.json')
   return response.json();
 }).then(function(body) {
 
-  var style = body.data[styleId];
+  var style = body.data[styleId - 1];
   var result = '<div class="mdl-grid learn_title">Available Beers</div>';
 
   // Append the style name in the hero image
@@ -113,6 +116,8 @@ fetch('./data/styles.json')
 
   // Get the url of our beer styles
   var styleUrl = createStyleUrl(styleId, pageId, true);
+
+    console.log(styleUrl);
 
   // Fetch the associated beers
   var innerCardDetails = "";

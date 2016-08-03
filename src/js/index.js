@@ -32,7 +32,7 @@ fetch('./data/styles.json')
   // Loop through the results
   for(var i = 0; i < body.data.length; i++) {
     var style = body.data[i];
-    var styleId = style.id - 1; // Zero based index
+    var styleId = style.id;
 
     var cardDetails = '<div class="mdl-cell mdl-cell--3-col-phone"><div class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand {{beercolour}}"></div><div class="name mdl-card__supporting-text">' + style.name + '</div><div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="./style.html?id=' + styleId + '">Learn more</a></div></div></div>';
 
