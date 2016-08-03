@@ -117,8 +117,6 @@ fetch('./data/styles.json')
   // Get the url of our beer styles
   var styleUrl = createStyleUrl(styleId, pageId, true);
 
-    console.log(styleUrl);
-
   // Fetch the associated beers
   var innerCardDetails = "";
   var innerCount = 1;
