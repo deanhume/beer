@@ -28,8 +28,6 @@ function createStyleUrl(styleId, pageId, includeRelative)
   if (pageId < 1){ pageId = 1; }
   styleUrl += '-page-' + pageId + '.json';
 
-
-
   if (includeRelative){
     return '.' + styleUrl;
   }
@@ -138,6 +136,8 @@ fetch('./data/styles.json')
         var beerDescription = beer.description;
         if (!beerDescription){ beerDescription = ""; } // Check if we have a value
         cardDetails = cardDetails.replace('{{beerdescription}}', beerDescription);
+
+        if (pageId == null) { pageId = ''; }
 
         cardDetails = cardDetails.replace('{{beerlink}}', "./beer.html?id=" + i + "&styleId=" + styleId+ "&pageId=" + pageId);
 
