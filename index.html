@@ -108,7 +108,7 @@
       <button class="mdl-snackbar__action" type="button"></button>
     </div>
     <!-- scripts -->
-    <script src="./js/list.min.js"></script>    <script src="./js/index-it79c0aa.min.js"></script>
+    <script src="./js/list.min.js"></script><script src="./js/index-it79c0aa.min.js"></script>
     <script>
       // Register the service worker
       if ('serviceWorker' in navigator) {
@@ -119,6 +119,13 @@
           // registration failed :(
             console.log('ServiceWorker registration failed: ', err);
           });
+
+        // Persistent storage
+        if (navigator.storage && navigator.storage.persist) {
+          navigator.storage.persist().then(granted => {
+            if (granted) { console.log('Persistent storage enabled'; ) }
+          });
+        }
       }
       // Google Analytics
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
