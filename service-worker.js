@@ -13,81 +13,47 @@
 
   // We want to precache the following items
   toolbox.precache([ './index.html',
-                     './about.html',
-                     './style.html',
-                     './beer.html']);
+  './about.html',
+  './style.html',
+  './beer.html']);
 
   // The route for any requests from the googleapis origin
   toolbox.router.get('/(.*)', global.toolbox.cacheFirst, {
     cache: {
-      name: 'googleapis',
-      maxEntries: 30,
-      maxAgeSeconds: 604800
+      name: 'beer'
+    },
+    networkTimeoutSeconds: 4
+  });
+
+  // The route for any requests from the googleapis origin
+  toolbox.router.get('/(.*)', global.toolbox.cacheFirst, {
+    cache: {
+      name: 'beer-fonts'
     },
     origin: /\.googleapis\.com$/,
-    // Set a timeout threshold of 2 seconds
     networkTimeoutSeconds: 4
   });
 
   toolbox.router.get('/(.*)', global.toolbox.cacheFirst, {
     cache: {
-      name: 'fonts',
-      maxEntries: 30,
-      maxAgeSeconds: 604800
+      name: 'beer-fonts'
     },
     origin: /\.gstatic\.com$/,
-    // Set a timeout threshold of 2 seconds
     networkTimeoutSeconds: 4
   });
 
-  toolbox.router.get('/beer/css/(.*)', global.toolbox.cacheFirst, {
+  toolbox.router.get('/(.*)', global.toolbox.cacheFirst, {
     cache: {
-      name: 'beer-stylesheets',
-      maxEntries: 10,
-      maxAgeSeconds: 604800
+      name: 'beer-images-amazon'
     },
-    // Set a timeout threshold of 2 seconds
+    origin: /\.amazonaws\.com$/,
     networkTimeoutSeconds: 4
   });
 
   toolbox.router.get('/beer/images/(.*)', global.toolbox.cacheFirst, {
     cache: {
-      name: 'beer-images',
-      maxEntries: 300,
-      maxAgeSeconds: 604800
+      name: 'beer-images'
     },
-    // Set a timeout threshold of 2 seconds
-    networkTimeoutSeconds: 4
-  });
-
-  toolbox.router.get('/beer/js/(.*)', global.toolbox.cacheFirst, {
-    cache: {
-      name: 'beer-javascript',
-      maxEntries: 10,
-      maxAgeSeconds: 604800
-    },
-    // Set a timeout threshold of 2 seconds
-    networkTimeoutSeconds: 4
-  });
-
-  toolbox.router.get('/(.*)', global.toolbox.cacheFirst, {
-    cache: {
-      name: 'beer-images-amazon',
-      maxEntries: 200,
-      maxAgeSeconds: 604800
-    },
-    origin: /\.amazonaws\.com$/,
-    // Set a timeout threshold of 2 seconds
-    networkTimeoutSeconds: 4
-  });
-
-  toolbox.router.get('/beer/data/(.*)', global.toolbox.cacheFirst, {
-    cache: {
-      name: 'beer-data',
-      maxEntries: 200,
-      maxAgeSeconds: 604800
-    },
-    // Set a timeout threshold of 2 seconds
     networkTimeoutSeconds: 4
   });
 
@@ -97,8 +63,8 @@
 })(self);
 
 function getFilenameFromUrl(path){
-    path = path.substring(path.lastIndexOf("/")+ 1);
-    return (path.match(/[^.]+(\.[^?#]+)?/) || [])[0];
+  path = path.substring(path.lastIndexOf("/")+ 1);
+  return (path.match(/[^.]+(\.[^?#]+)?/) || [])[0];
 }
 
 // Add in some offline functionality
@@ -106,12 +72,12 @@ this.addEventListener('fetch', event => {
   // request.mode = navigate isn't supported in all browsers
   // so include a check for Accept: text/html header.
   if (event.request.mode === 'navigate' || (event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html'))) {
-        event.respondWith(
-          fetch(event.request.url).catch(error => {
-              var cachedFile = getFilenameFromUrl(event.request.url);
-              // Return the offline page
-              return caches.match(cachedFile);
-          })
+    event.respondWith(
+      fetch(event.request.url).catch(error => {
+        var cachedFile = getFilenameFromUrl(event.request.url);
+        // Return the offline page
+        return caches.match(cachedFile);
+      })
     );
   }
 
@@ -120,22 +86,22 @@ this.addEventListener('fetch', event => {
     // Inspect the accept header for WebP support
     let supportsWebp = false;
     if (event.request.headers.has('accept')){
-        supportsWebp = event.request.headers
-                                    .get('accept')
-                                    .includes('webp');
+      supportsWebp = event.request.headers
+      .get('accept')
+      .includes('webp');
     }
 
     // If we support WebP
     if (supportsWebp)
     {
-        // Build the return URL
-        let returnUrl = event.request.url.substr(0, event.request.url.lastIndexOf(".")) + ".webp";
+      // Build the return URL
+      let returnUrl = event.request.url.substr(0, event.request.url.lastIndexOf(".")) + ".webp";
 
-        event.respondWith(
-          fetch(returnUrl, {
-            mode: 'no-cors'
-          })
-        );
+      event.respondWith(
+        fetch(returnUrl, {
+          mode: 'no-cors'
+        })
+      );
     }
   }
 });
