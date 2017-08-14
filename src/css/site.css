@@ -18,6 +18,11 @@
       height: 400px;
     }
 
+    .header-background-settings {
+      background: url('/images/beer-settings.jpg') center / cover;
+      height: 400px;
+    }
+
     .demo-layout-transparent .mdl-layout__header,
     .demo-layout-transparent .mdl-layout__drawer-button {
       color: white;
