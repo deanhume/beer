@@ -19,7 +19,7 @@
     }
 
     .header-background-settings {
-      background: url('/images/beer-settings.jpg') center / cover;
+      background: url('https://deanhume.github.io/beer/images/beer-settings.jpg') center / cover;
       height: 400px;
     }
 
@@ -272,7 +272,7 @@
        }
 
       .header-background-settings {
-        background: url('/images/beer-settings-mobile.jpg') center / cover;
+        background: url('https://deanhume.github.io/beer/images/beer-settings-mobile.jpg') center / cover;
         height: 400px;
       }
 
@@ -414,7 +414,7 @@
        }
 
       .header-background-settings {
-        background: url('/images/beer-settings-mobile.jpg') center / cover;
+        background: url('https://deanhume.github.io/beer/images/beer-settings-mobile.jpg') center / cover;
         height: 400px;
       }       
 
@@ -557,7 +557,7 @@
        }
 
       .header-background-settings {
-        background: url('/images/beer-settings-mobile.jpg') center / cover;
+        background: url('https://deanhume.github.io/beer/images/beer-settings-mobile.jpg') center / cover;
         height: 400px;
       }       
 
@@ -716,7 +716,7 @@
        }
 
        .header-background-settings {
-        background: url('/images/beer-settings-mobile.jpg') center / cover;
+        background: url('https://deanhume.github.io/beer/images/beer-settings-mobile.jpg') center / cover;
         height: 400px;
       }
 
