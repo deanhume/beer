@@ -33,8 +33,9 @@ module.exports = function(grunt) {
             files: [
                 { src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/index.js'], dest: 'dist/js/index-' + uid + '.min.js' },
                 { src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/beer.js'], dest: 'dist/js/beer-' + uid + '.min.js' },
-                { src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/style.js'], dest: 'dist/js/style-' + uid + '.min.js' },
-								{ src: ['src/js/material.min.js'], dest: 'dist/js/about-' + uid + '.min.js' }
+				{ src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/style.js'], dest: 'dist/js/style-' + uid + '.min.js' },
+				{ src: ['src/js/material.min.js', 'src/js/settings.js'], dest: 'dist/js/settings-' + uid + '.min.js' },
+				{ src: ['src/js/material.min.js'], dest: 'dist/js/about-' + uid + '.min.js' }
             ]
         }
     },

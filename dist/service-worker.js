@@ -15,79 +15,59 @@
   toolbox.precache([ './index.html',
                      './about.html',
                      './style.html',
+                     './settings.html',
                      './beer.html']);
 
   // The route for any requests from the googleapis origin
   toolbox.router.get('/(.*)', global.toolbox.cacheFirst, {
     cache: {
-      name: 'googleapis',
-      maxEntries: 30,
-      maxAgeSeconds: 604800
+      name: 'googleapis'
     },
     origin: /\.googleapis\.com$/,
-    // Set a timeout threshold of 2 seconds
     networkTimeoutSeconds: 4
   });
 
   toolbox.router.get('/(.*)', global.toolbox.cacheFirst, {
     cache: {
-      name: 'fonts',
-      maxEntries: 30,
-      maxAgeSeconds: 604800
+      name: 'fonts'
     },
     origin: /\.gstatic\.com$/,
-    // Set a timeout threshold of 2 seconds
     networkTimeoutSeconds: 4
   });
 
   toolbox.router.get('/beer/css/(.*)', global.toolbox.cacheFirst, {
     cache: {
-      name: 'beer-stylesheets',
-      maxEntries: 10,
-      maxAgeSeconds: 604800
+      name: 'beer-stylesheets'
     },
-    // Set a timeout threshold of 2 seconds
     networkTimeoutSeconds: 4
   });
 
   toolbox.router.get('/beer/images/(.*)', global.toolbox.cacheFirst, {
     cache: {
-      name: 'beer-images',
-      maxEntries: 300,
-      maxAgeSeconds: 604800
+      name: 'beer-images'
     },
-    // Set a timeout threshold of 2 seconds
     networkTimeoutSeconds: 4
   });
 
   toolbox.router.get('/beer/js/(.*)', global.toolbox.cacheFirst, {
     cache: {
-      name: 'beer-javascript',
-      maxEntries: 10,
-      maxAgeSeconds: 604800
+      name: 'beer-javascript'
     },
-    // Set a timeout threshold of 2 seconds
     networkTimeoutSeconds: 4
   });
 
   toolbox.router.get('/(.*)', global.toolbox.cacheFirst, {
     cache: {
-      name: 'beer-images-amazon',
-      maxEntries: 200,
-      maxAgeSeconds: 604800
+      name: 'beer-images-amazon'
     },
     origin: /\.amazonaws\.com$/,
-    // Set a timeout threshold of 2 seconds
     networkTimeoutSeconds: 4
   });
 
   toolbox.router.get('/beer/data/(.*)', global.toolbox.cacheFirst, {
     cache: {
-      name: 'beer-data',
-      maxEntries: 200,
-      maxAgeSeconds: 604800
+      name: 'beer-data'
     },
-    // Set a timeout threshold of 2 seconds
     networkTimeoutSeconds: 4
   });
 

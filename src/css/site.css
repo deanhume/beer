@@ -190,7 +190,7 @@
       margin-bottom: 150px;
     }
     .title_width{
-      min-width: 80%;
+      min-width: 50%;
     }
 
     .beer_icon{
@@ -233,6 +233,15 @@
       margin-top: 220px;
     }
 
+    .settings_icons{
+      padding-left: 10px;
+      padding-top: 25px;
+    }
+
+    .mdl-card__title-text{
+      text-shadow: #474545 2px 2px 2px;
+    }
+
     /* Desktop */
     @media only screen and (min-width: 1025px) {
       .hide_desktop{
@@ -261,6 +270,11 @@
          background: url('https://deanhume.github.io/beer/images/about-mobile.jpg') center / cover;
          height: 400px;
        }
+
+      .header-background-settings {
+        background: url('/images/beer-settings-mobile.jpg') center / cover;
+        height: 400px;
+      }
 
       .hide_tablet{
         display: none!important;
@@ -399,6 +413,11 @@
          height: 400px;
        }
 
+      .header-background-settings {
+        background: url('/images/beer-settings-mobile.jpg') center / cover;
+        height: 400px;
+      }       
+
         .hide_mobile{
           display: none!important;
         }
@@ -536,6 +555,11 @@
          background: url('https://deanhume.github.io/beer/images/about-mobile.jpg') center / cover;
          height: 400px;
        }
+
+      .header-background-settings {
+        background: url('/images/beer-settings-mobile.jpg') center / cover;
+        height: 400px;
+      }       
 
         .hide_mobile{
           display: none!important;
@@ -691,6 +715,11 @@
          height: 400px;
        }
 
+       .header-background-settings {
+        background: url('/images/beer-settings-mobile.jpg') center / cover;
+        height: 400px;
+      }
+
         .hide_mobile{
           display: none!important;
         }
@@ -735,7 +764,6 @@
             font-size: 50px;
             letter-spacing: -7px;
             font-family: 'Gabriela', serif;
-            width: 90%;
             text-align: center;
             line-height: 40px;
         }
