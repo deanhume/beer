@@ -1,7 +1,7 @@
 {
   "name": "Progressive Beer",
   "short_name": "Progressive Beer",
-  "lang": "en-US",
+  "lang": "en-GB",
   "start_url": "./index.html",
   "display": "browser",
   "theme_color": "#ffe400",
