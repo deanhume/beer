@@ -1,14 +1,15 @@
 {
   "dependencies": {
-    "grunt": "*",
+    "grunt": "^1.0.4",
     "grunt-cli": "*",
+    "grunt-contrib-copy": "*",
     "grunt-contrib-cssmin": "*",
-    "grunt-contrib-uglify": "*",
+    "grunt-contrib-uglify-es": "*",
     "grunt-htmlmin": "*",
-    "grunt-processhtml": "*",
-    "grunt-contrib-copy": "*"
+    "grunt-processhtml": "*"
   },
   "devDependencies": {
+    "grunt-contrib-uglify-es": "^3.3.0",
     "sw-offline-google-analytics": "^1.0.0"
   }
 }

@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
 	var uid = (new Date().getTime()).toString(36);
 
@@ -7,16 +7,18 @@ module.exports = function(grunt) {
 		cssmin: {
 			target: {
 				files: [{
-					src: ['src/css/material.min.css', 'src/css/site.css'], dest: 'dist/css/result-' + uid + '.min.css' }
-				]}
+					src: ['src/css/material.min.css', 'src/css/site.css'], dest: 'dist/css/result-' + uid + '.min.css'
+				}
+				]
+			}
 		},
 		// Rewrite the minifed stuff into the processed HTML file
 		processhtml: {
 			options: {
-				 data: {
-					 message: uid
-				 }
-	 		},
+				data: {
+					message: uid
+				}
+			},
 			dist: {
 				files: [{
 					expand: true,
@@ -29,25 +31,25 @@ module.exports = function(grunt) {
 		},
 		// Minify the JS files
 		uglify: {
-        dist: {
-            files: [
-                { src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/index.js'], dest: 'dist/js/index-' + uid + '.min.js' },
-                { src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/beer.js'], dest: 'dist/js/beer-' + uid + '.min.js' },
-				{ src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/style.js'], dest: 'dist/js/style-' + uid + '.min.js' },
-				{ src: ['src/js/material.min.js', 'src/js/settings.js'], dest: 'dist/js/settings-' + uid + '.min.js' },
-				{ src: ['src/js/material.min.js'], dest: 'dist/js/about-' + uid + '.min.js' }
-            ]
-        }
-    },
+			dist: {
+				files: [
+					{ src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/index.js'], dest: 'dist/js/index-' + uid + '.min.js' },
+					{ src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/beer.js'], dest: 'dist/js/beer-' + uid + '.min.js' },
+					{ src: ['src/js/material.min.js', 'src/js/fetch.js', 'src/js/style.js'], dest: 'dist/js/style-' + uid + '.min.js' },
+					{ src: ['src/js/material.min.js', 'src/js/settings.js'], dest: 'dist/js/settings-' + uid + '.min.js' },
+					{ src: ['src/js/material.min.js'], dest: 'dist/js/about-' + uid + '.min.js' }
+				]
+			}
+		},
 		// Copy all of the images across to dist
 		copy: {
-		  images: {
-		    expand: true,
+			images: {
+				expand: true,
 				flatten: true,
-				 filter: 'isFile',
-		    src: 'src/images/*',
-		    dest: 'dist/images/',
-		  },
+				filter: 'isFile',
+				src: 'src/images/*',
+				dest: 'dist/images/',
+			},
 			imagesSrm: {
 				expand: true,
 				flatten: true,
@@ -92,10 +94,10 @@ module.exports = function(grunt) {
 		}
 	});
 
-grunt.loadNpmTasks('grunt-contrib-uglify');
-grunt.loadNpmTasks('grunt-contrib-cssmin');
-grunt.loadNpmTasks('grunt-processhtml');
-grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-uglify-es');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-processhtml');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 
-grunt.registerTask('default', ['cssmin', 'processhtml', 'copy', 'uglify']);
+	grunt.registerTask('default', ['cssmin', 'processhtml', 'copy', 'uglify']);
 };
