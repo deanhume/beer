@@ -24,9 +24,10 @@ function showOfflineNotification() {
  */
 async function init(){
   const stylesResult = await fetch('https://z2s71hp3o9.execute-api.us-east-1.amazonaws.com/default/styles');
+  const result = await stylesResult.text();
 
   // Paint the page
-  document.getElementById("main").innerHTML = stylesResult + document.getElementById("main").innerHTML;
+  document.getElementById("main").innerHTML = result + document.getElementById("main").innerHTML;
   document.getElementById("loading-button").style.display = 'none';
 
   // Show offline
