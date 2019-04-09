@@ -19,21 +19,27 @@ function showOfflineNotification() {
     });
   }
 }
+/**
+ * Fetch the beer styles
+ */
+async function init(){
+  const stylesResult = await fetch('https://z2s71hp3o9.execute-api.us-east-1.amazonaws.com/default/styles');
 
-// Fetch the beer styles
-const stylesResult = await fetch('https://z2s71hp3o9.execute-api.us-east-1.amazonaws.com/default/styles');
+  // Paint the page
+  document.getElementById("main").innerHTML = stylesResult + document.getElementById("main").innerHTML;
+  document.getElementById("loading-button").style.display = 'none';
 
-// Paint the page
-document.getElementById("main").innerHTML = stylesResult + document.getElementById("main").innerHTML;
-document.getElementById("loading-button").style.display = 'none';
+  // Show offline
+  setTimeout(showOfflineNotification, 2000);
 
-// Show offline
-setTimeout(showOfflineNotification, 2000);
+  // Search filter
+  var options = {
+    valueNames: ['name']
+  };
 
-// Search filter
-var options = {
-  valueNames: ['name']
-};
+  var styleList = new List('styles', options);
+}
 
-var styleList = new List('styles', options);
+init();
+
 
