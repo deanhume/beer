@@ -21,7 +21,7 @@ function showOfflineNotification() {
 }
 
 // Fetch the beer styles
-const stylesResult = fetch('https://z2s71hp3o9.execute-api.us-east-1.amazonaws.com/default/styles');
+const stylesResult = await fetch('https://z2s71hp3o9.execute-api.us-east-1.amazonaws.com/default/styles');
 
 // Paint the page
 document.getElementById("main").innerHTML = stylesResult + document.getElementById("main").innerHTML;
