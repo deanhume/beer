@@ -6,10 +6,16 @@
     "grunt-contrib-cssmin": "*",
     "grunt-contrib-uglify-es": "*",
     "grunt-htmlmin": "*",
-    "grunt-processhtml": "*"
+    "grunt-processhtml": "*",
+    "snyk": "^1.192.4"
   },
   "devDependencies": {
     "grunt-contrib-uglify-es": "^3.3.0",
     "sw-offline-google-analytics": "^1.0.0"
-  }
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
