@@ -7,7 +7,7 @@
     "grunt-contrib-uglify-es": "*",
     "grunt-htmlmin": "*",
     "grunt-processhtml": "*",
-    "snyk": "^1.192.4"
+    "snyk": "^1.214.0"
   },
   "devDependencies": {
     "grunt-contrib-uglify-es": "^3.3.0",
