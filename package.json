@@ -1,13 +1,13 @@
 {
   "dependencies": {
-    "grunt": "^1.3.0",
+    "grunt": "^1.5.0",
     "grunt-cli": "*",
     "grunt-contrib-copy": "*",
     "grunt-contrib-cssmin": "*",
     "grunt-contrib-uglify-es": "*",
     "grunt-htmlmin": "*",
     "grunt-processhtml": "*",
-    "snyk": "^1.192.5"
+    "snyk": "^1.465.0"
   },
   "devDependencies": {
     "grunt-contrib-uglify-es": "^3.3.0",
