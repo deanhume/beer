@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "grunt": "^1.5.2",
-    "grunt-cli": "*",
+    "grunt-cli": "1.4.3",
     "grunt-contrib-copy": "*",
     "grunt-contrib-cssmin": "*",
     "grunt-contrib-uglify-es": "*",
