@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "grunt": "^1.5.2",
+    "grunt": "^1.5.3",
     "grunt-cli": "*",
     "grunt-contrib-copy": "*",
     "grunt-contrib-cssmin": "*",
