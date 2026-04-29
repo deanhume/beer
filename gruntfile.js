@@ -71,6 +71,20 @@ module.exports = function (grunt) {
 				src: 'src/js/list.min.js',
 				dest: 'dist/js/list.min.js',
 			},
+			manifest: {
+				expand: false,
+				flatten: true,
+				filter: 'isFile',
+				src: 'src/manifest.json',
+				dest: 'dist/manifest.json',
+			},
+			favicon: {
+				expand: false,
+				flatten: true,
+				filter: 'isFile',
+				src: 'src/favicon.ico',
+				dest: 'dist/favicon.ico',
+			},
 			googleSwFiles: {
 				expand: false,
 				flatten: true,

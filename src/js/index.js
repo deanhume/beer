@@ -34,7 +34,7 @@ fetch('./data/styles.json')
     var styleId = style.id;
 
     // Simplified card structure for CSS Grid
-    var cardDetails = '<div class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand {{beercolour}}"></div><div class="name mdl-card__supporting-text">' + style.name + '</div><div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="./style.html?id=' + styleId + '">Learn more</a></div></div>';
+    var cardDetails = '<div class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand {{beercolour}}"></div><div class="mdl-card__supporting-text"><h3 class="name">{{name}}</h3><p>{{description}}</p></div><div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="./style.html?id=' + styleId + '">Learn more</a></div></div>';
 
     // Beer colour is determined by SRM (http://www.twobeerdudes.com/beer/srm)
     if (style.srmMax < 10)
@@ -54,6 +54,9 @@ fetch('./data/styles.json')
     else{
       cardDetails = cardDetails.replace('{{beercolour}}','palebeer');
     }
+
+    cardDetails = cardDetails.replace('{{name}}', style.name);
+    cardDetails = cardDetails.replace('{{description}}', style.description || 'Discover this unique beer style');
 
     // Add card directly to result (CSS Grid handles layout)
     result += cardDetails;

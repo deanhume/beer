@@ -101,8 +101,7 @@ fetch('./data/styles.json')
 }).then(function(body) {
 
   var style = body.data[styleId - 1];
-  var result = '<div class="mdl-grid learn_title">Available Beers</div>';
-
+  
   // Append the style name in the hero image
   var styleHeroElement = document.getElementById('styleName');
   styleHeroElement.innerHTML += createHeroText(style.name);
@@ -122,6 +121,7 @@ fetch('./data/styles.json')
   // Fetch the associated beers
   var innerCardDetails = "";
   var innerCount = 1;
+  var result = '';
   fetch(styleUrl)
   .then(function(response) {
     return response.json();
@@ -133,8 +133,8 @@ fetch('./data/styles.json')
       // We only want verified beers
       if(beer.status == 'verified' && beer)
       {
-        // mdl-cell--4-col
-        var cardDetails = '<div class="mdl-cell mdl-cell--3-col-phone"><div class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand" style="{{beerimage}}"><h2 class="mdl-card__title-text">{{beername}}</h2></div><div class="mdl-card__supporting-text truncate">{{beerdescription}}</div><div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{beerlink}}">Learn more</a></div></div></div>';
+        // Simplified card structure for CSS Grid
+        var cardDetails = '<div class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand {{srmClass}}" style="{{beerimage}}">{{statsbadges}}{{beerGlass}}<h2 class="mdl-card__title-text">{{beername}}</h2></div><div class="mdl-card__supporting-text truncate">{{beerdescription}}</div><div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{beerlink}}">Learn more</a></div></div>';
         cardDetails = cardDetails.replace('{{beername}}', beer.name);
 
         var beerDescription = beer.description;
@@ -143,26 +143,47 @@ fetch('./data/styles.json')
 
         cardDetails = cardDetails.replace('{{beerlink}}', "./beer.html?id=" + i + "&styleId=" + styleId+ "&pageId=" + pageId);
 
-        // Display the label if we have one
-        if (beer.labels)
-        {
-          cardDetails = cardDetails.replace('{{beerimage}}', "background: url('" + beer.labels.large + "') center / cover; height:300px;");
-        }
-        else{
-          cardDetails = cardDetails.replace('{{beerimage}}', "background: url('./images/srm/light.jpg') center / cover; height:300px;");
-        }
+          // Use SRM gradient based on beer's SRM value
+          var srmClass = '';
+          var glassColor = 'pale';
+          var srmValue = beer.style ? (beer.style.srmMax || beer.style.srmMin) : null;
+          
+          if (srmValue) {
+            if (srmValue < 10) {
+              srmClass = 'palebeer';
+              glassColor = 'pale';
+            } else if (srmValue >= 10 && srmValue < 20) {
+              srmClass = 'amberbeer';
+              glassColor = 'amber';
+            } else {
+              srmClass = 'darkbeer';
+              glassColor = 'dark';
+            }
+          } else {
+            srmClass = 'palebeer';
+            glassColor = 'pale';
+          }
+          
+          cardDetails = cardDetails.replace('{{beerimage}}', 'height:300px;');
+          cardDetails = cardDetails.replace('{{srmClass}}', srmClass);
 
-        // We want to keep a responsive grid in place
-        if (innerCount % 3 === 0)
-        {
-          cardDetails = '<div class="mdl-grid">' + innerCardDetails + cardDetails; //add the opening tag
-          cardDetails = cardDetails + '</div>'; // closing tag
-          result += cardDetails;
-          innerCardDetails = ""; // reset the innercard details
+        // Add stat badges
+        var statBadges = '<div class="beer-stats">';
+        if (beer.abv) {
+          statBadges += '<div class="stat-badge"><i class="material-icons">whatshot</i><span class="stat-value">' + beer.abv + '%</span> ABV</div>';
         }
-        else{
-          innerCardDetails += cardDetails;
+        if (beer.ibu) {
+          statBadges += '<div class="stat-badge"><i class="material-icons">local_florist</i><span class="stat-value">' + beer.ibu + '</span> IBU</div>';
         }
+        statBadges += '</div>';
+        cardDetails = cardDetails.replace('{{statsbadges}}', statBadges);
+
+        // Add beer glass indicator
+        var beerGlass = '<div class="beer-glass-indicator"><div class="beer-glass"><div class="glass-fill ' + glassColor + '"><div class="glass-foam"></div></div><div class="glass-outline"></div></div></div>';
+        cardDetails = cardDetails.replace('{{beerGlass}}', beerGlass);
+
+        // Add card directly to result (CSS Grid handles layout)
+        result += cardDetails;
         innerCount++;
       }
     }

@@ -1926,3 +1926,233 @@ html {
   }
 }
 
+
+/* ===== ENHANCED BEER CARD STYLES ===== */
+
+/* Glass Shine Effect */
+.palebeer::after,
+.amberbeer::after,
+.darkbeer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+/* Beer Stats Badges */
+.beer-stats {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.stat-badge {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.stat-badge i {
+  font-size: 14px;
+}
+
+.stat-value {
+  color: #FB8C00;
+}
+
+/* Beer Glass Icon with SRM Color */
+.beer-glass-indicator {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 40px;
+  height: 50px;
+  z-index: 10;
+}
+
+.beer-glass {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.glass-outline {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.glass-fill {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80%;
+  border-radius: 0 0 6px 6px;
+  animation: fillGlass 1s ease-out;
+}
+
+.glass-fill.pale {
+  background: linear-gradient(180deg, #F4D03F 0%, #E8B923 100%);
+}
+
+.glass-fill.amber {
+  background: linear-gradient(180deg, #D4722B 0%, #8B3A12 100%);
+}
+
+.glass-fill.dark {
+  background: linear-gradient(180deg, #3D2817 0%, #0D0805 100%);
+}
+
+.glass-foam {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  animation: bubbleFoam 2s ease-in-out infinite;
+}
+
+@keyframes fillGlass {
+  from {
+    height: 0%;
+    opacity: 0;
+  }
+  to {
+    height: 80%;
+    opacity: 1;
+  }
+}
+
+@keyframes bubbleFoam {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+}
+
+/* Enhanced Hover Effects */
+.demo-card-square {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: visible;
+}
+
+.demo-card-square:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25) !important;
+  z-index: 10;
+}
+
+.demo-card-square .mdl-card__title {
+  position: relative;
+}
+
+/* Carbonation Effect on Hover */
+.demo-card-square:hover .mdl-card__title::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.3) 2px, transparent 2px),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.3) 2px, transparent 2px),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+    radial-gradient(circle at 60% 70%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+    radial-gradient(circle at 30% 60%, rgba(255, 255, 255, 0.3) 2px, transparent 2px);
+  background-size: 100% 100%;
+  animation: bubbles 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes bubbles {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Grain Texture Overlay */
+.palebeer, .amberbeer, .darkbeer {
+  background-blend-mode: overlay;
+}
+
+.palebeer::before,
+.amberbeer::before,
+.darkbeer::before {
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.03) 2px,
+      rgba(255, 255, 255, 0.03) 4px
+    );
+}
+
+/* Card Title Enhancement */
+.demo-card-square .mdl-card__title-text {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  position: relative;
+  z-index: 5;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .beer-stats {
+    top: 10px;
+    right: 10px;
+    gap: 5px;
+  }
+  
+  .stat-badge {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+  
+  .beer-glass-indicator {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 40px;
+  height: 50px;
+  z-index: 10;
+}
+}
+
+
