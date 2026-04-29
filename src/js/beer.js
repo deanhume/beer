@@ -127,18 +127,56 @@ fetch(styleUrl)
     beerDetails.innerHTML = detailsTemplate;
 
     // The Brewery details
-    var breweryTemplate = "<section class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp\" style=\"margin-top: 50px;margin-bottom: 50px;width: 60%;\"><div class=\"mdl-card mdl-cell mdl-cell--12-col\"><div class=\"mdl-card__supporting-text mdl-grid mdl-grid--no-spacing\" style=\"padding-bottom: 30px;\"><h4 class=\"mdl-cell mdl-cell--12-col\" style=\"padding-top: 20px;\">Brewery Info</h4><div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"><i class=\"material-icons orange600\" style=\"padding-top: 20px;\">local_drink</i></div><div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"><h5>Brewery Name</h5>{{name}}</div><div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"><i class=\"material-icons orange600\" style=\"padding-top: 20px;\">help</i></div><div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"><h5>About</h5>{{description}}</div><div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"><i class=\"material-icons orange600\" style=\"padding-top: 20px;\">http</i></div><div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"><h5>Website</h5><a href=\"{{website}}\">{{{website}}}</a></div><div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"><i class=\"material-icons orange600\" style=\"padding-top: 10px;\">cake</i></div><div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"><h5>Established</h5>{{established}}</div></div></div></section>";
+    var breweryTemplate = "<section class=\"section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp\" style=\"margin-top: 50px;margin-bottom: 50px;width: 60%;\"><div class=\"mdl-card mdl-cell mdl-cell--12-col\"><div class=\"mdl-card__supporting-text mdl-grid mdl-grid--no-spacing\" style=\"padding-bottom: 30px;\"><h4 class=\"mdl-cell mdl-cell--12-col\" style=\"padding-top: 20px;\">Brewery Info</h4><div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"><i class=\"material-icons orange600\" style=\"padding-top: 20px;\">local_drink</i></div><div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"><h5>Brewery Name</h5>{{name}}</div><div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"><i class=\"material-icons orange600\" style=\"padding-top: 20px;\">help</i></div><div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"><h5>About</h5>{{description}}</div><div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"><i class=\"material-icons orange600\" style=\"padding-top: 20px;\">http</i></div><div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"><h5>Website</h5><a href=\"{{website}}\">{{{website}}}</a></div><div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"><i class=\"material-icons orange600\" style=\"padding-top: 10px;\">cake</i></div><div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"><h5>Established</h5>{{established}}</div>{{additionalInfo}}</div></div></section>";
 
    // Update the template
    var breweryDetails = htmlDocument.getElementById('breweryDetails');
 
-   breweryTemplate = breweryTemplate.replace('{{name}}', cleanUnknownText(beer.breweries[0].name));
+   var breweryName = beer.breweries[0].name;
+   breweryTemplate = breweryTemplate.replace('{{name}}', cleanUnknownText(breweryName));
    breweryTemplate = breweryTemplate.replace('{{description}}', cleanUnknownText(beer.breweries[0].description));
    breweryTemplate = breweryTemplate.replace('{{website}}', cleanUnknownText(beer.breweries[0].website));
    breweryTemplate = breweryTemplate.replace('{{{website}}}', cleanUnknownText(beer.breweries[0].website));
    breweryTemplate = breweryTemplate.replace('{{established}}', cleanUnknownText(beer.breweries[0].established));
 
-   breweryDetails.innerHTML = breweryTemplate;
+   // Fetch additional brewery data from Open Brewery DB API
+   fetch('https://api.openbrewerydb.org/v1/breweries/search?query=' + encodeURIComponent(breweryName))
+     .then(function(response) {
+       return response.json();
+     })
+     .then(function(breweryData) {
+       var additionalInfo = '';
+       
+       // If we got data back from the API, add it to the template
+       if (breweryData && breweryData.length > 0) {
+         var brewery = breweryData[0];
+         
+         // Add brewery type
+         if (brewery.brewery_type) {
+           additionalInfo += '<div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"><i class=\"material-icons orange600\" style=\"padding-top: 20px;\">category</i></div><div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"><h5>Brewery Type</h5>' + brewery.brewery_type + '</div>';
+         }
+         
+         // Add address
+         if (brewery.city || brewery.state_province || brewery.country) {
+           var location = [brewery.address_1, brewery.city, brewery.state_province, brewery.postal_code, brewery.country].filter(function(item) { return item; }).join(', ');
+           additionalInfo += '<div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"><i class=\"material-icons orange600\" style=\"padding-top: 20px;\">location_on</i></div><div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"><h5>Location</h5>' + location + '</div>';
+         }
+         
+         // Add phone
+         if (brewery.phone) {
+           additionalInfo += '<div class=\"section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone\"><i class=\"material-icons orange600\" style=\"padding-top: 20px;\">phone</i></div><div class=\"section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone\"><h5>Phone</h5>' + brewery.phone + '</div>';
+         }
+       }
+       
+       breweryTemplate = breweryTemplate.replace('{{additionalInfo}}', additionalInfo);
+       breweryDetails.innerHTML = breweryTemplate;
+     })
+     .catch(function(error) {
+       // If the API call fails, just display the original template without additional info
+       console.log('Could not fetch brewery data from Open Brewery DB:', error);
+       breweryTemplate = breweryTemplate.replace('{{additionalInfo}}', '');
+       breweryDetails.innerHTML = breweryTemplate;
+     });
 
    // Set the back link
   //  var backlink = htmlDocument.getElementById('backlink');
