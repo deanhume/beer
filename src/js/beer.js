@@ -141,8 +141,8 @@ fetch(styleUrl)
    breweryDetails.innerHTML = breweryTemplate;
 
    // Set the back link
-   var backlink = htmlDocument.getElementById('backlink');
-   backlink.href = "./style.html?id=" + styleId + "&pageId=" + pageId;
+  //  var backlink = htmlDocument.getElementById('backlink');
+  //  backlink.href = "./style.html?id=" + styleId + "&pageId=" + pageId;
 
   // Kill the loading icon
   htmlDocument.getElementById('loading-button').style.display = "none";
