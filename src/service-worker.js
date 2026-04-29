@@ -56,14 +56,6 @@
     networkTimeoutSeconds: 4
   });
 
-  toolbox.router.get('/(.*)', global.toolbox.cacheFirst, {
-    cache: {
-      name: 'beer-images-amazon'
-    },
-    origin: /\.amazonaws\.com$/,
-    networkTimeoutSeconds: 4
-  });
-
   toolbox.router.get('/beer/data/(.*)', global.toolbox.cacheFirst, {
     cache: {
       name: 'beer-data'

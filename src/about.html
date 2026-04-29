@@ -61,22 +61,125 @@
         <p class="hero-description">Learn more about Progressive Beer</p>
       </div>
     </section>
-    <main class="mdl-layout__content">
-    <!-- intro -->
-    <div class="mdl-grid learn_title">About</div>
-    <div class="mdl-grid about_text">
-      Progressive Beer is a web app that is designed to leverage all the great features of Service Workers and build a truly Progressive Web App. If you'd like to learn more about Progressive Web Apps, I recommend checking out <a href="https://developers.google.com/web/progressive-web-apps/" style="margin:auto;">this link</a> for more information. Oh, and once you've visited a web page on this site, it will be available offline!
-    </div>
-      <!-- map image -->
-      <div class="mdl-grid beer_map">
-        <div class="beer_text">Beer from around the world!</div>
-      </div>
-      <div class="mdl-grid learn_title">Our Data</div>
-      <div class="mdl-grid about_text">
-          <img src="./images/brewerydb-logo.png" width="150px" height="150px" style="margin:auto;" />
-          All of our data is supplied by the team over at BreweryDb.com. If you'd like to learn more about them, please check out their website for a huge database of breweries, beers, beer events and even brewers guilds! You can even submit new beers as the database is constantly kept up to date.
-      </div>
-        <!-- Modern Footer -->
+    
+    <!-- Main Content -->
+    <main class="about-content">
+      
+      <!-- About PWA Section -->
+      <section class="about-section">
+        <div class="content-wrapper">
+          <div class="about-card">
+            <div class="about-icon-header">
+              <i class="material-icons large-icon">rocket_launch</i>
+            </div>
+            <h2>Progressive Web App</h2>
+            <p>Progressive Beer is a modern web application that leverages cutting-edge Progressive Web App (PWA) technologies to deliver a fast, reliable, and engaging experience across all devices.</p>
+            <p>Built with Service Workers, this app works seamlessly offline, caches content intelligently, and provides app-like experiences right in your browser.</p>
+            <a href="https://developers.google.com/web/progressive-web-apps/" target="_blank" rel="noopener" class="learn-more-link">
+              Learn more about PWAs <i class="material-icons">arrow_forward</i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Grid -->
+      <section class="features-grid-section">
+        <div class="content-wrapper">
+          <h2 class="section-title">Key Features</h2>
+          <div class="features-grid">
+            <div class="feature-box">
+              <i class="material-icons feature-box-icon">offline_bolt</i>
+              <h3>Offline First</h3>
+              <p>Browse beer styles and brewery information even without an internet connection. All visited pages are automatically cached.</p>
+            </div>
+            <div class="feature-box">
+              <i class="material-icons feature-box-icon">speed</i>
+              <h3>Lightning Fast</h3>
+              <p>Optimized performance with smart caching strategies and lazy loading for instant page loads.</p>
+            </div>
+            <div class="feature-box">
+              <i class="material-icons feature-box-icon">devices</i>
+              <h3>Cross-Platform</h3>
+              <p>Works perfectly on desktop, tablet, and mobile devices. Install it as a native app on your device.</p>
+            </div>
+            <div class="feature-box">
+              <i class="material-icons feature-box-icon">search</i>
+              <h3>Smart Search</h3>
+              <p>Quickly filter and find beer styles with real-time search and category filters.</p>
+            </div>
+            <div class="feature-box">
+              <i class="material-icons feature-box-icon">api</i>
+              <h3>Live Data</h3>
+              <p>Brewery information powered by Open Brewery DB API for up-to-date details.</p>
+            </div>
+            <div class="feature-box">
+              <i class="material-icons feature-box-icon">palette</i>
+              <h3>Beautiful Design</h3>
+              <p>Modern, responsive interface with SRM-accurate color representations and smooth animations.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technology Stack -->
+      <section class="tech-section">
+        <div class="content-wrapper">
+          <h2 class="section-title">Built With Modern Web Technologies</h2>
+          <div class="tech-grid">
+            <div class="tech-item">
+              <div class="tech-badge">Service Workers</div>
+              <p>Offline functionality and smart caching</p>
+            </div>
+            <div class="tech-item">
+              <div class="tech-badge">Web App Manifest</div>
+              <p>Installable as a native app</p>
+            </div>
+            <div class="tech-item">
+              <div class="tech-badge">Cache API</div>
+              <p>Intelligent content caching</p>
+            </div>
+            <div class="tech-item">
+              <div class="tech-badge">Fetch API</div>
+              <p>Modern network requests</p>
+            </div>
+            <div class="tech-item">
+              <div class="tech-badge">Material Design</div>
+              <p>Clean, responsive UI</p>
+            </div>
+            <div class="tech-item">
+              <div class="tech-badge">CSS Grid</div>
+              <p>Flexible, responsive layouts</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Data Sources -->
+      <section class="data-sources-section">
+        <div class="content-wrapper">
+          <h2 class="section-title">Our Data Sources</h2>
+          <div class="data-sources-grid">
+            <div class="data-source-card">
+              <div class="data-source-header">
+                <i class="material-icons">local_drink</i>
+                <h3>BreweryDB</h3>
+              </div>
+              <p>Comprehensive beer styles data including detailed descriptions, characteristics, and brewing specifications for over 170 different beer styles from around the world.</p>
+              <a href="http://www.brewerydb.com/" target="_blank" rel="noopener" class="data-source-link">Visit BreweryDB →</a>
+            </div>
+            <div class="data-source-card">
+              <div class="data-source-header">
+                <i class="material-icons">business</i>
+                <h3>Open Brewery DB</h3>
+              </div>
+              <p>Free, open-source API providing real-time brewery information including locations, contact details, and brewery types from thousands of breweries worldwide.</p>
+              <a href="https://www.openbrewerydb.org/" target="_blank" rel="noopener" class="data-source-link">Visit Open Brewery DB →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modern Footer -->
       <footer class="modern-footer">
         <div class="footer-container">
           <div class="footer-top">
