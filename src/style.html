@@ -64,11 +64,21 @@
     </section>
     <!-- main div -->
     <main class="mdl-layout__content main_content beer_content">
-      <!-- intro -->
-      <div class="mdl-grid learn_title">This Beer's Style</div>
-      <div class="mdl-grid learn_intro" id="styleDescription"></div>
+      <!-- Style Description Section -->
+      <section class="style-description-section">
+        <div class="content-wrapper">
+          <div class="style-description-card">
+            <div class="style-card-header">
+              <i class="material-icons">info</i>
+              <h2>About This Beer Style</h2>
+            </div>
+            <div class="style-description-content" id="styleDescription"></div>
+          </div>
+        </div>
+      </section>
+      
       <!-- loading button -->
-      <div class="mdl-grid" style="padding-top: 120px;" id="loading-button">
+      <div class="mdl-grid" style="padding-top: 60px;" id="loading-button">
         <div class="mdl-cell mdl-cell--6-col"></div>
         <div class="mdl-cell mdl-cell--1-col">
           <div class="mdl-spinner mdl-js-spinner is-active"></div>
