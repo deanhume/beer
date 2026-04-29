@@ -6,7 +6,7 @@
     <title>Progressive Beer - Settings</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href='https://fonts.googleapis.com/css?family=Gabriela|Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="./css/result-mok6q0x4.min.css">    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./css/result-mok9sw6a.min.css">    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Progressive Beer - The ultimate guide to beer around the world.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -33,39 +33,29 @@
 </head>
 
 <body>
-    <!-- header -->
-    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
-        <header class="mdl-layout__header mdl-layout__header--transparent header-background-settings">
-            <div class="mdl-layout__header-row" style="border-bottom: .1rem solid hsla(0,0%,100%,.3);">
-                <!-- Title -->
-                <span class="mdl-layout-title title_width">
-            <a class="hide_mobile" href="./">Progressive Beer</a>
-            <img src="./images/beer-icon.svg" class="hide_desktop hide_tablet beer_icon">
-          </span>
-                <!-- Add spacer, to align navigation to the right -->
-                <div class="mdl-layout-spacer"></div>
-                <!-- Navigation -->
-                <nav class="mdl-navigation">
-                    <a class="mdl-navigation__link link_size" href="./index.html">Home</a>
-                    <a class="mdl-navigation__link link_size" href="./settings.html">Settings</a>
-                    <a class="mdl-navigation__link link_size" href="./about.html">About</a>
-                </nav>
-            </div>
-            <div id="tagline" class="mdl-layout__header-row hero_title">
-                <div class="mdl-grid style_name">Settings</div>
-            </div>
-            <div id="tagline" class="mdl-layout__header-row text_margin hero_title">
-                <div class="mdl-grid styleTagline">Your offline storage settings</div>
-            </div>
-        </header>
-        <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title"><a id="drawer" href="./index.html">Progressive Beer</a></span>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="./index.html">Home</a>
-                <a class="mdl-navigation__link" href="./settings.html">Settings</a>
-                <a class="mdl-navigation__link" href="./about.html">About</a>
-            </nav>
+    <!-- Modern Hero + Nav Section -->
+    <section class="unified-hero-section unified-hero-small">
+      <!-- Navigation -->
+      <nav class="clean-nav">
+        <div class="nav-wrapper">
+          <div class="nav-left">
+            <img src="./images/beer-icon.svg" class="nav-icon" alt="Beer Icon">
+            <span class="nav-brand">Progressive Beer</span>
+          </div>
+          <div class="nav-right">
+            <a href="./index.html" class="nav-item">Home</a>
+            <a href="./settings.html" class="nav-item active">Settings</a>
+            <a href="./about.html" class="nav-item">About</a>
+          </div>
         </div>
+      </nav>
+      
+      <!-- Hero Content -->
+      <div class="hero-content-wrapper hero-content-small">
+        <h1 class="hero-heading hero-heading-small">Settings</h1>
+        <p class="hero-description">Your offline storage settings</p>
+      </div>
+    </section>
         <!-- main div -->
         <main class="mdl-layout__content main_content beer_content" id="main">
             <!-- beer features -->
@@ -99,23 +89,57 @@
                 </div>
             </div>
         </main>
-        <!-- footer -->
-        <footer class="mdl-mega-footer">
-            <div class="mdl-mega-footer__middle-section">
-                <div class="mdl-mega-footer__drop-down-section">
-                    <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
-                    <h1 class="mdl-mega-footer__heading">More Resources</h1>
-                    <ul class="mdl-mega-footer__link-list">
-                        <li>All data supplied by <a href="http://www.brewerydb.com/">BreweryDB</a></li>
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./about.html">About</a></li>
-                    </ul>
-                </div>
+        <!-- Modern Footer -->
+      <footer class="modern-footer">
+        <div class="footer-container">
+          <!-- Footer Top Section -->
+          <div class="footer-top">
+            <div class="footer-column">
+              <div class="footer-brand">
+                <img src="./images/beer-icon.svg" class="footer-logo" alt="Progressive Beer">
+                <h3>Progressive Beer</h3>
+              </div>
+              <p class="footer-tagline">Your ultimate guide to beer styles from around the world. Discover, learn, and explore.</p>
             </div>
-            <div class="mdl-mega-footer__bottom-section">
-                Made with ❤ by <a href="http://deanhume.com">DEAN HUME</a>
+            
+            <div class="footer-column">
+              <h4 class="footer-heading">Quick Links</h4>
+              <ul class="footer-links">
+                <li><a href="./">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./settings.html">Settings</a></li>
+              </ul>
             </div>
-        </footer>
+            
+            <div class="footer-column">
+              <h4 class="footer-heading">Resources</h4>
+              <ul class="footer-links">
+                <li><a href="http://www.brewerydb.com/" target="_blank" rel="noopener">BreweryDB</a></li>
+                <li><a href="https://www.openbrewerydb.org/" target="_blank" rel="noopener">Open Brewery DB</a></li>
+              </ul>
+            </div>
+            
+            <div class="footer-column">
+              <h4 class="footer-heading">Features</h4>
+              <ul class="footer-features">
+                <li><i class="material-icons">offline_pin</i> Works Offline</li>
+                <li><i class="material-icons">palette</i> 170+ Beer Styles</li>
+                <li><i class="material-icons">public</i> Global Coverage</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Footer Bottom Section -->
+          <div class="footer-bottom">
+            <p class="footer-copyright">© 2026 Progressive Beer. Made with ❤ by <a href="http://deanhume.com" target="_blank" rel="noopener">Dean Hume</a></p>
+            <div class="footer-credits">
+              <span>Beer styles data by <a href="http://www.brewerydb.com/" target="_blank" rel="noopener">BreweryDB</a></span>
+              <span>•</span>
+              <span>Brewery data by <a href="https://www.openbrewerydb.org/" target="_blank" rel="noopener">Open Brewery DB</a></span>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
     <!-- toast notification -->
     <div id="offline-notification" class="mdl-js-snackbar mdl-snackbar">
@@ -123,7 +147,7 @@
         <button class="mdl-snackbar__action" type="button"></button>
     </div>
     <!-- scripts -->
-    <script src="./js/settings-mok6q0x4.min.js"></script>    <script>
+    <script src="./js/settings-mok9sw6a.min.js"></script>    <script>
         // Register the service worker
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('./service-worker.js').then(function (registration) {
@@ -148,3 +172,4 @@
 </body>
 
 </html>
+
