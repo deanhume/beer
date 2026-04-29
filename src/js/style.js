@@ -12,7 +12,7 @@ function getParameterByName(name, url) {
 
 // Create the hero text from the style name
 function createHeroText(styleName){
-  var styleHeroName = '<div class="mdl-grid style_name style_hero_text">{{styleName}}</div>';
+  var styleHeroName = '<h1 class="hero-heading hero-heading-small">{{styleName}}</h1>';
   return styleHeroName.replace('{{styleName}}', styleName);
 }
 

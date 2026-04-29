@@ -27,51 +27,42 @@ fetch('./data/styles.json')
 }).then(function(body) {
 
   var result = "";
-  var innerCardDetails = "";
-  var innerCount = 1;
+  
   // Loop through the results
   for(var i = 0; i < body.data.length; i++) {
     var style = body.data[i];
     var styleId = style.id;
 
-    var cardDetails = '<div class="mdl-cell mdl-cell--3-col-phone"><div class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand {{beercolour}}"></div><div class="name mdl-card__supporting-text">' + style.name + '</div><div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="./style.html?id=' + styleId + '">Learn more</a></div></div></div>';
+    // Simplified card structure for CSS Grid
+    var cardDetails = '<div class="demo-card-square mdl-card mdl-shadow--2dp"><div class="mdl-card__title mdl-card--expand {{beercolour}}"></div><div class="name mdl-card__supporting-text">' + style.name + '</div><div class="mdl-card__actions mdl-card--border"><a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="./style.html?id=' + styleId + '">Learn more</a></div></div>';
 
-      // Beer colour is determined by SRM (http://www.twobeerdudes.com/beer/srm)
-      if (style.srmMax < 10)
-      {
-        // pale
-        cardDetails = cardDetails.replace('{{beercolour}}','palebeer');
-      }
-      else if (style.srmMax > 10 && style.srmMax < 20)
-      {
-        // amber
-        cardDetails = cardDetails.replace('{{beercolour}}','amberbeer');
-      }
-      else if (style.srmMax > 20){
-        // dark
-        cardDetails = cardDetails.replace('{{beercolour}}','darkbeer');
-      }
-      else{
-        cardDetails = cardDetails.replace('{{beercolour}}','palebeer');
-      }
-
-      // We want to keep a responsive grid in place
-      if (innerCount % 3 === 0)
-      {
-        cardDetails = '<div class="mdl-grid">' + innerCardDetails + cardDetails; //add the opening tag
-        cardDetails = cardDetails + '</div>'; // closing tag
-        result += cardDetails;
-        innerCardDetails = ""; // reset the innercard details
-      }
-      else{
-        innerCardDetails += cardDetails;
-      }
-      innerCount++;
+    // Beer colour is determined by SRM (http://www.twobeerdudes.com/beer/srm)
+    if (style.srmMax < 10)
+    {
+      // pale
+      cardDetails = cardDetails.replace('{{beercolour}}','palebeer');
     }
+    else if (style.srmMax > 10 && style.srmMax < 20)
+    {
+      // amber
+      cardDetails = cardDetails.replace('{{beercolour}}','amberbeer');
+    }
+    else if (style.srmMax > 20){
+      // dark
+      cardDetails = cardDetails.replace('{{beercolour}}','darkbeer');
+    }
+    else{
+      cardDetails = cardDetails.replace('{{beercolour}}','palebeer');
+    }
+
+    // Add card directly to result (CSS Grid handles layout)
+    result += cardDetails;
+  }
 
   // Paint the page
   document.getElementById("main").innerHTML = result + document.getElementById("main").innerHTML;
   document.getElementById("loading-button").style.display = 'none';
+  document.getElementById("skeleton-loader").style.display = 'none';
 
   // Show offline
   setTimeout(showOfflineNotification, 2000);
@@ -82,4 +73,32 @@ fetch('./data/styles.json')
   };
 
   var styleList = new List('styles', options);
+
+  // Filter chips functionality
+  const filterChips = document.querySelectorAll('.filter-chip');
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', function() {
+      // Remove active class from all chips
+      filterChips.forEach(c => c.classList.remove('active'));
+      // Add active class to clicked chip
+      this.classList.add('active');
+      
+      const category = this.getAttribute('data-category');
+      
+      if (category === 'all') {
+        styleList.filter(); // Clear all filters
+      } else if (category === 'ipa') {
+        // Special handling for IPAs - match "India Pale Ale" or "IPA"
+        styleList.filter(function(item) {
+          const name = item.values().name.toLowerCase();
+          return name.includes('india pale ale') || name.includes('ipa');
+        });
+      } else {
+        styleList.filter(function(item) {
+          const name = item.values().name.toLowerCase();
+          return name.includes(category);
+        });
+      }
+    });
+  });
 });
