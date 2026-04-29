@@ -1254,7 +1254,6 @@ html {
 
 /* Unified Hero Section with Gradient */
 .unified-hero-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 400px;
   position: relative;
   padding-bottom: 60px;
@@ -1263,8 +1262,8 @@ html {
 /* Clean Navigation */
 .clean-nav {
   padding: 20px 0;
-  background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .nav-wrapper {
@@ -1285,14 +1284,14 @@ html {
 .nav-icon {
   width: 40px;
   height: 40px;
-  filter: brightness(0) invert(1);
+  
 }
 
 .nav-brand {
   font-family: 'Gabriela', serif;
   font-size: 24px;
   font-weight: 600;
-  color: white;
+  color: #333;
   letter-spacing: -1px;
 }
 
@@ -1303,7 +1302,7 @@ html {
 }
 
 .nav-item {
-  color: rgba(255, 255, 255, 0.9);
+  color: #666;
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
@@ -1314,8 +1313,8 @@ html {
 
 .nav-item:hover,
 .nav-item.active {
-  color: white;
-  background: rgba(255, 255, 255, 0.2);
+  color: #FB8C00;
+  background: rgba(251, 140, 0, 0.1);
 }
 
 /* Hero Content */
@@ -1325,6 +1324,7 @@ html {
   padding: 80px 40px;
   text-align: center;
   color: white;
+  background: url(https://deanhume.github.io/beer/images/beer.jpg) center / cover;
   animation: fadeInUp 0.8s ease-out;
 }
 
@@ -1360,9 +1360,14 @@ html {
   }
   
   .nav-item {
-    font-size: 14px;
-    padding: 6px 12px;
-  }
+  color: #666;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
   
   .hero-content-wrapper {
     padding: 50px 20px;
@@ -1630,4 +1635,7 @@ html {
     font-size: 16px;
   }
 }
+
+
+
 
