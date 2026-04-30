@@ -106,6 +106,8 @@
 
     .main_content{
       margin: 0 auto;
+      width: 100%;
+      max-width: 100%;
     }
 
     .grid_border{
@@ -360,6 +362,8 @@
 
       .main_content {
           margin: 0 auto;
+          width: 100%;
+          max-width: 100%;
       }
 
       .style_name {
@@ -555,6 +559,8 @@
 
         .main_content {
           margin: 0 auto;
+          width: 100%;
+          max-width: 100%;
       }
 
        .beer_content{
@@ -715,6 +721,8 @@
 
         .main_content {
           margin: 0 auto;
+          width: 100%;
+          max-width: 100%;
       }
 
        .beer_content{
@@ -872,6 +880,8 @@
 
         .main_content {
           margin: 0 auto;
+          width: 100%;
+          max-width: 100%;
       }
 
        .beer_content{
@@ -1091,9 +1101,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
-  padding: 40px 20px;
-  max-width: 1400px;
-  margin: 0 auto;
+  padding: 40px 40px;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
@@ -1319,7 +1328,7 @@ html {
 
 /* Hero Content */
 .hero-content-wrapper {
-  max-width: 900px;
+  /* max-width: 900px; */
   margin: 0 auto;
   padding: 80px 40px;
   text-align: center;
