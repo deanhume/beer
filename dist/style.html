@@ -6,7 +6,7 @@
   <title>Beer Styles</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Gabriela|Open+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="./css/result-mok9sw6a.min.css">  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="./css/result-molgx61y.min.css">  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="Progressive Beer - The ultimate guide to beer around the world.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -57,22 +57,35 @@
     </section>
     <!-- main div -->
     <main class="mdl-layout__content main_content beer_content">
-      <!-- intro -->
-      <div class="mdl-grid learn_title">This Beer's Style</div>
-      <div class="mdl-grid learn_intro" id="styleDescription"></div>
+      <!-- Style Description Section -->
+      <section class="style-description-section">
+        <div class="content-wrapper">
+          <div class="style-description-card">
+            <div class="style-card-header">
+              <i class="material-icons">info</i>
+              <h2>About This Beer Style</h2>
+            </div>
+            <div class="style-description-content" id="styleDescription"></div>
+          </div>
+        </div>
+      </section>
+      
       <!-- loading button -->
-      <div class="mdl-grid" style="padding-top: 120px;" id="loading-button">
+      <div class="mdl-grid" style="padding-top: 60px;" id="loading-button">
         <div class="mdl-cell mdl-cell--6-col"></div>
         <div class="mdl-cell mdl-cell--1-col">
           <div class="mdl-spinner mdl-js-spinner is-active"></div>
         </div>
         <div class="mdl-cell mdl-cell--5-col"></div>
       </div>
-      <div id="main" class="grid_padding"></div>
+      <!-- Available Beers Section -->
+      <div class="mdl-grid learn_title">Available Beers</div>
+      <div id="main" class="beer-grid"></div>
     </main>
     <!-- Modern Footer -->
       <footer class="modern-footer">
         <div class="footer-container">
+          <!-- Footer Top Section -->
           <div class="footer-top">
             <div class="footer-column">
               <div class="footer-brand">
@@ -81,6 +94,7 @@
               </div>
               <p class="footer-tagline">Your ultimate guide to beer styles from around the world. Discover, learn, and explore.</p>
             </div>
+            
             <div class="footer-column">
               <h4 class="footer-heading">Quick Links</h4>
               <ul class="footer-links">
@@ -89,13 +103,7 @@
                 <li><a href="./settings.html">Settings</a></li>
               </ul>
             </div>
-            <div class="footer-column">
-              <h4 class="footer-heading">Resources</h4>
-              <ul class="footer-links">
-                <li><a href="http://www.brewerydb.com/" target="_blank" rel="noopener">BreweryDB</a></li>
-                <li><a href="https://www.openbrewerydb.org/" target="_blank" rel="noopener">Open Brewery DB</a></li>
-              </ul>
-            </div>
+                       
             <div class="footer-column">
               <h4 class="footer-heading">Features</h4>
               <ul class="footer-features">
@@ -105,12 +113,12 @@
               </ul>
             </div>
           </div>
+          
+          <!-- Footer Bottom Section -->
           <div class="footer-bottom">
             <p class="footer-copyright">© 2026 Progressive Beer. Made with ❤ by <a href="http://deanhume.com" target="_blank" rel="noopener">Dean Hume</a></p>
             <div class="footer-credits">
-              <span>Beer styles data by <a href="http://www.brewerydb.com/" target="_blank" rel="noopener">BreweryDB</a></span>
-              <span>•</span>
-              <span>Brewery data by <a href="https://www.openbrewerydb.org/" target="_blank" rel="noopener">Open Brewery DB</a></span>
+              
             </div>
           </div>
         </div>
@@ -122,7 +130,7 @@
     <button class="mdl-snackbar__action" type="button"></button>
   </div>
   <!-- scripts -->
-  <script src="./js/style-mok9sw6a.min.js"></script>  <script>
+  <script src="./js/style-molgx61y.min.js"></script>  <script>
     // Register the service worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./service-worker.js').then(function (registration) {
