@@ -46,7 +46,7 @@
     }
 
     .demo-card-square.mdl-card {
-      width: 320px;
+      width: 300px;
       height: 320px;
     }
     .demo-card-square > .mdl-card__title {
@@ -957,6 +957,7 @@
   transition: all 0.3s ease;
   height: 100%;
   animation: fadeInUp 0.6s ease-out;
+  padding-bottom: 20px;
 }
 
 .feature-card:hover {
@@ -1100,7 +1101,7 @@
 .beer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
+  gap: 32px;
   padding: 40px 40px;
   margin: 0;
 }
